@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity,Text,Image,View,} from 'react-native';
-import { Spinner } from 'native-base'
+// import { Spinner } from 'native-base'
 import Style from './styles';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 
@@ -22,7 +22,9 @@ const { style,
       <Image source={require('../../Assets/Images/buttonlogo.png')}  style={{width:25,height:25,position:'absolute',top:widthPercentageToDP('4%'),zIndex:1,left:'19%'}}    />
         <TouchableOpacity disabled={disabled} style={buttonStyleNode}  onPress={onPress}>
  {!loading ? children : []}
-	   {loading ? (<Spinner color={'#fff'} />) : textNode}
+	   {/* {loading ? (<Spinner color={'#fff'} />) : textNode} */}
+     {textNode}
+     
         </TouchableOpacity>
          </View>
     )
