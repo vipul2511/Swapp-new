@@ -11,17 +11,15 @@ import {
   Alert,
 } from 'react-native';
 import styles from './Styles';
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import FingerprintScanner from 'react-native-fingerprint-scanner';
-import ReactNativeBiometrics from 'react-native-biometrics';
 
 const PinCodeScreen = ({navigation}) => {
   const [password, setPassword] = useState(['', '', '', '', '']);
-  const [biometryType, setbiometryType] = useState(null);
+  const [biometryType, setbiometryType] = useState('');
   let Numbers = [
     {id: 1},
     {id: 2},
@@ -62,30 +60,22 @@ const PinCodeScreen = ({navigation}) => {
   };
 
   useEffect(() => {
-    // FingerprintScanner.isSensorAvailable()
-    //   .then(bioType => {
-    //     this.setState({bioType});
-    //   })
-    //   .catch(error => console.log('isSensorAvailable error => ', error));
+    FingerprintScanner.isSensorAvailable()
+      .then(bioType => {
+        // console.log('bio type',bioType);
+        setbiometryType(bioType);
+        if(bioType=="Biometrics"){
+          showAuthenticationDialog();
+        }
+        if(bioType=="TouchID"){
+          showAuthenticationDialog();
+        }
+        if(bioType=="Face ID"){
+          showAuthenticationDialog();
+        }
+      })
+      .catch(error => console.log('isSensorAvailable error => ', error));
 
-    ReactNativeBiometrics.isSensorAvailable().then(resultObject => {
-      const {available, biometryTyp} = resultObject;
-
-      if (available && biometryTyp === ReactNativeBiometrics.TouchID) {
-        console.log('TouchID is supported');
-      } else if (available && biometryTyp === ReactNativeBiometrics.FaceID) {
-        console.log('FaceID is supported');
-      } else if (
-        available &&
-        biometryTyp === ReactNativeBiometrics.Biometrics
-      ) {
-        console.log('Biometrics is supported');
-      } else {
-        console.log(biometryTyp + 'check' + available);
-
-        console.log('Biometrics not supported');
-      }
-    });
   }, []);
 
   const Getmessage = () => {
@@ -99,7 +89,6 @@ const PinCodeScreen = ({navigation}) => {
   };
 
   const showAuthenticationDialog = () => {
-    console.log('showau');
     const bioType = biometryType;
 
     if (bioType !== null && bioType !== undefined) {
@@ -108,6 +97,7 @@ const PinCodeScreen = ({navigation}) => {
       })
         .then(() => {
           //you can write your logic here to what will happen on successful authentication
+          navigation.goBack();
         })
         .catch(error => {
           console.log('Authentication error is => ', error);
