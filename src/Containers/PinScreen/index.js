@@ -59,24 +59,24 @@ const PinCodeScreen = ({navigation}) => {
     setPassword(prevState => console.log(prevState));
   };
 
-  useEffect(() => {
-    FingerprintScanner.isSensorAvailable()
-      .then(bioType => {
-        // console.log('bio type',bioType);
-        setbiometryType(bioType);
-        if(bioType=="Biometrics"){
-          showAuthenticationDialog();
-        }
-        if(bioType=="TouchID"){
-          showAuthenticationDialog();
-        }
-        if(bioType=="Face ID"){
-          showAuthenticationDialog();
-        }
-      })
-      .catch(error => console.log('isSensorAvailable error => ', error));
+  // useEffect(() => {
+  //   FingerprintScanner.isSensorAvailable()
+  //     .then(bioType => {
+  //       // console.log('bio type',bioType);
+  //       setbiometryType(bioType);
+  //       if(bioType=="Biometrics"){
+  //         showAuthenticationDialog();
+  //       }
+  //       if(bioType=="TouchID"){
+  //         showAuthenticationDialog();
+  //       }
+  //       if(bioType=="Face ID"){
+  //         showAuthenticationDialog();
+  //       }
+  //     })
+  //     .catch(error => console.log('isSensorAvailable error => ', error));
 
-  }, []);
+  // }, []);
 
   const Getmessage = () => {
     // console.log()

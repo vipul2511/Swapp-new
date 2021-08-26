@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Number: {
-    width: 120,
-    height: 85,
+    width: wp('30%'),
+    height: hp('10%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
