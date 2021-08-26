@@ -7,9 +7,14 @@ import {
 import Styles from './styles';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const SelectionBtn = ({selection}) => {
+const SelectionBtn = ({selection, GetSelected}) => {
   const [select, setselect] = React.useState(selection);
   console.log(select);
+
+  const Selectedvalue = item => {
+    setselect(item);
+    GetSelected(item);
+  };
 
   const emoji = ['  😎', '  💸', '  👍'];
   return (
@@ -18,7 +23,7 @@ const SelectionBtn = ({selection}) => {
         return (
           <View style={{paddingVertical: hp('1%')}} key={index}>
             <TouchableOpacity
-              onPress={() => setselect(item)}
+              onPress={() => Selectedvalue(item)}
               style={
                 select === item ? Styles.activebutton : Styles.disablebutton
               }>

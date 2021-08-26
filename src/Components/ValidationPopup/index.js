@@ -13,13 +13,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-const App = ({onPress, Show,showback}) => {
-    // console.log(Show + )
+const App = ({onPress, Show, showback}) => {
+  // console.log(Show + )
   const [modalVisible, setModalVisible] = useState(Show);
   const updateModalstate = () => {
     setModalVisible(!modalVisible);
     showback(!modalVisible);
-  }
+  };
   return (
     <View>
       <Modal
@@ -32,14 +32,11 @@ const App = ({onPress, Show,showback}) => {
         }}>
         <View
           style={{
-            justifyContent: 'flex-start',
-            justifyContent: 'flex-end',
-
             backgroundColor: '#262A34',
             borderTopEndRadius: 25,
             borderTopLeftRadius: 25,
-            marginTop: hp('82%'),
-            paddingBottom:hp('3%')
+            marginTop: hp('80%'),
+            paddingBottom: hp('8%'),
           }}>
           <View style={{marginTop: hp('2%')}}>
             <Text
@@ -48,7 +45,7 @@ const App = ({onPress, Show,showback}) => {
                 fontSize: 14,
                 textAlign: 'center',
                 // marginTop: hp('3%'),
-                // backgroundColor:'yellow'
+                // backgroundColor:'yellowzfs'
               }}>
               You can choose 1 option
             </Text>
@@ -60,12 +57,14 @@ const App = ({onPress, Show,showback}) => {
             }}>
             <TransparentButton
               title="Got it"
-              onPress={ updateModalstate}
+              onPress={updateModalstate}
               style={{
                 width: wp('85%'),
                 height: hp('7.3%'),
                 backgroundColor: '#246BFD',
                 borderColor: '#246BFD',
+                // marginTop:20padding
+                // paddingBottom:5
                 // marginLeft:wp('5%')
               }}
               textStyle={{fontWeight: 'bold', fontSize: 14}}
@@ -73,7 +72,6 @@ const App = ({onPress, Show,showback}) => {
           </View>
         </View>
       </Modal>
-     
     </View>
   );
 };

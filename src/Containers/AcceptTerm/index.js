@@ -11,18 +11,25 @@ import ValidationPopup from '../../Components/ValidationPopup';
 
 const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
+  const [Selectedvalue, setselectedvalue] = React.useState('');
   // const [show, setshowValidpop] = React.useState(false);
   const selection = ['Privacy', 'Monetize', 'Both'];
   // console.warn(show);
+  const GetSelected = value => {
+    setselectedvalue(value);
+  };
   const updateshow = () => {
-    console.log(showValidpop);
-    setshowValidpop(!showValidpop);
+    if (Selectedvalue === '') {
+      setshowValidpop(!showValidpop);
+    } else {
+      return null;
+    }
   };
 
   return (
     <View style={{flex: 1, backgroundColor: '#2C303A'}}>
       {/* <StatusBar translucent={true} backgroundColor={'transparent'} /> */}
-      <Header />
+      <Header navigation={navigation}/>
       <View
         style={{
           height: hp('22%'),
@@ -48,14 +55,8 @@ const AcceptTerm = ({navigation}) => {
           business wording
         </Text>
       </View>
-      <SelectionBtn selection={selection} />
-      {/* <TouchableOpacity
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: hp('2%'),
-        }}
-        > */}
+      <SelectionBtn selection={selection} GetSelected={GetSelected} />
+
       {!showValidpop ? (
         <TransparentButton
           onPress={updateshow}
@@ -65,17 +66,21 @@ const AcceptTerm = ({navigation}) => {
             height: hp('7.3%'),
             backgroundColor: '#246BFD',
             borderColor: '#246BFD',
-            marginLeft: 25,
-            marginTop: 5,
+            // marginLeft: ,
+            marginLeft: wp('7%'),
+            marginTop: hp('5%'),
           }}
           textStyle={{fontWeight: 'bold', fontSize: 14}}
         />
       ) : null}
+
       {/* </TouchableOpacity> */}
       {/* <View style={{backgroundColor:'red',marginHorizontal:20,borderWidth:1,borderColor:'pink',shadowColor:'blue',elevation:20}}><Text>dash</Text></View> */}
 
       {/* <ValidationPopup Show={true} /> */}
-      {showValidpop == true && <ValidationPopup Show={true}  showback={updateshow}/>}
+      {showValidpop == true && (
+        <ValidationPopup Show={true} showback={updateshow} />
+      )}
     </View>
   );
 };
