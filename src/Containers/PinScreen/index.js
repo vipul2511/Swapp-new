@@ -38,45 +38,52 @@ const PinCodeScreen = ({navigation}) => {
     for (var i = 0; i < tempCode.length; i++) {
       if (tempCode[i] == '') {
         tempCode[i] = num;
-        break;
-      } else {
+          break;
+      } 
+      else {
         continue;
       }
     }
-    setPassword(tempCode);
+    if(tempCode.length==5){
+      navigation.goBack();
+    }
+    setPassword(prePassword=>([...tempCode]));
   };
 
   const OnpressCancel = () => {
     let tempCode = password;
-    for (var i = tempCode.length - 1; i >= 0; i--) {
-      if (tempCode[i] !== '') {
-        tempCode[i] = '';
-        break;
-      } else {
-        continue;
+    if(password!=['', '', '', '', '']){
+      for (var i = tempCode.length - 1; i >= 0; i--) {
+        if (tempCode[i] !== '') {
+          tempCode[i] = '';
+          break;
+        } else {
+          continue;
+        }
       }
+      setPassword(prePassword => ([...tempCode]));
     }
-    setPassword(prevState => console.log(prevState));
+
+    
   };
 
-  // useEffect(() => {
-  //   FingerprintScanner.isSensorAvailable()
-  //     .then(bioType => {
-  //       // console.log('bio type',bioType);
-  //       setbiometryType(bioType);
-  //       if(bioType=="Biometrics"){
-  //         showAuthenticationDialog();
-  //       }
-  //       if(bioType=="TouchID"){
-  //         showAuthenticationDialog();
-  //       }
-  //       if(bioType=="Face ID"){
-  //         showAuthenticationDialog();
-  //       }
-  //     })
-  //     .catch(error => console.log('isSensorAvailable error => ', error));
+  useEffect(() => {
+    FingerprintScanner.isSensorAvailable()
+      .then(bioType => {
+        setbiometryType(bioType);
+        if(bioType=="Biometrics"){
+          showAuthenticationDialog();
+        }
+        if(bioType=="TouchID"){
+          showAuthenticationDialog();
+        }
+        if(bioType=="Face ID"){
+          showAuthenticationDialog();
+        }
+      })
+      .catch(error => console.log('isSensorAvailable error => ', error));
 
-  // }, []);
+  }, []);
 
   const Getmessage = () => {
     // console.log()
@@ -96,7 +103,6 @@ const PinCodeScreen = ({navigation}) => {
         description: Getmessage(),
       })
         .then(() => {
-          //you can write your logic here to what will happen on successful authentication
           navigation.goBack();
         })
         .catch(error => {
