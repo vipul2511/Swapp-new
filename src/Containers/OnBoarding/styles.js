@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   mainImageView:{
      marginVertical:hp('6%'),
-     marginHorizontal:wp('20%')
+     marginHorizontal:wp('18%')
   },
   scrollContainer: {
     marginLeft: 30,

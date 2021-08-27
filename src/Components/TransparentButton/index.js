@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity,Text,Platform,View} from 'react-native';
-import { Spinner } from 'native-base'
+// import { Spinner } from 'native-base'
 import Style from './style';
 import AntDesgin from 'react-native-vector-icons/AntDesign';
 const TransparentButton=(props)=>{
@@ -21,7 +21,7 @@ const { style,
         <View style={{width:'85%'}}>
         <TouchableOpacity disabled={disabled} style={buttonStyleNode}  onPress={onPress}>
  {!loading ? children : []}
-	   {loading ? (<Spinner color={'#fff'} />) : textNode}
+	    {textNode}
         </TouchableOpacity>
         </View>
     )

@@ -15,7 +15,7 @@ export default StyleSheet.create({
         alignItems:'center'
     },
     logo:{
-        width:wp('32%'),
+        width:wp('35%'),
         height:hp('20%')
     }
   })

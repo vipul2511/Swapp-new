@@ -14,7 +14,6 @@ export default StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     justifyContent: 'space-around',
-    flexDirection: 'row',
     paddingBottom: 10,
     paddingTop: 10
   },

@@ -5,6 +5,7 @@ import styles from './styles';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp, heightPercentageToDP} from 'react-native-responsive-screen';
 import Button from '../../Components/Button';
 import TransparentButton from '../../Components/TransparentButton';
+import { useIsFocused } from '@react-navigation/native';
 const slides = [
     {
       key: 1,
@@ -43,6 +44,7 @@ const slides = [
     },
   ];
 const OnBoarding=({navigation})=>{
+  const isFocused = useIsFocused();
   useEffect(() => {
     BackHandler.addEventListener("hardwareBackPress", backButtonHandler);
 
@@ -51,29 +53,31 @@ const OnBoarding=({navigation})=>{
     };
   }, [backButtonHandler]);
   function backButtonHandler(){
-    BackHandler.exitApp()
-    return true;
+    if(isFocused){
+      BackHandler.exitApp()
+      return true;
+    }
   }
   const _renderItem = ({item, index }) => {
     return (
       <View style={{flex:1}}>
-       
+
          <View style={styles.mainImageView} >
-           <Image source={item.image} style={{width:wp('63%'),height:hp('35%')}}   />
+           <Image source={item.image} style={{width:wp('69%'),height:hp('35%')}}   />
          </View>
          <View style={styles.personaldataView}>
            <Text style={styles.personaldata}>{item.title}</Text>
          </View>
          <View style={styles.getitView}>
            <Text style={styles.getitText}>{item.text1}</Text>
-           <Text style={styles.getitText}>{item.text2}</Text> 
+           <Text style={styles.getitText}>{item.text2}</Text>
            <ImageBackground source={require('../../Assets/Images/Ellipse.png')} style={{width:wp('38%')}}>
              <View style={{width:wp('60%')}}>
            <Text style={styles.getitText}>{item.text3}</Text>
            </View>
            </ImageBackground>
          </View>
-       
+
       </View>
     );
   };
@@ -97,9 +101,9 @@ const OnBoarding=({navigation})=>{
         </View>
         <View style={{width:wp('100%'),height:hp('50%'),backgroundColor:'#181A20'}} >
           <View style={{justifyContent:'center',alignItems:'center',marginTop:wp('2%')}}>
-            <Button title="Create your Swapp" style={styles.createSwapp}  onPress={() => navigation.navigate('PinScreen')}/>
+            <Button title="Create your Swapp" style={styles.createSwapp}  onPress={() => navigation.navigate('InitialScreen')}/>
             <View style={{marginTop:hp('3%')}}>
-            <TransparentButton title="Import account" style={styles.createSwapp} onPress={() => navigation.navigate('NameScreen')} />
+            <TransparentButton title="Import account" style={styles.createSwapp} onPress={() => {}} />
             </View>
           </View>
           <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:hp('3%')}}>

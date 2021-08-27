@@ -1,12 +1,9 @@
-
-
-
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet,Image, Text, Pressable, View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import TransparentButton from '../../Components/TransparentButton';
 
-const PopupModal = ({visible}) => {
+const PopupModal = ({visible,onPress}) => {
   const [modalVisible, setModalVisible] = useState(visible);
   return (
     <View style={styles.centeredView}>
@@ -33,7 +30,7 @@ const PopupModal = ({visible}) => {
               </Text>
             </View>
             <View style={{marginVertical:hp('5%')}}>
-            <TransparentButton title="Get start!" onPress={()=>{setModalVisible(false)}} style={{width:wp('85%'),height:hp('7.3%'),backgroundColor:'#246BFD',borderColor: null}} textStyle={{fontWeight:'bold'}}/>
+            <TransparentButton title="Get start!" onPress={onPress} style={{width:wp('85%'),height:hp('7.3%'),backgroundColor:'#246BFD',borderColor: null}} textStyle={{fontWeight:'bold'}}/>
             </View>
           </View>
           </View>
@@ -66,7 +63,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     // margin: 10,
-    width:wp('100%'),height:hp('60%'),
+    width:wp('90%'),height:hp('60%'),
     backgroundColor: "#262A34",
     borderColor:"#3A3D46",
     borderRadius: 20,

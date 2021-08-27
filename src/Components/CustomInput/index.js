@@ -7,6 +7,7 @@ import {
 
 const CustomIinput=({header,value,onchange})=>{
   const [focus,setfoucs] = useState(false);
+  const [inputval, setInputval] = useState('');
   const updatefocus = () => {
     setfoucs(false)
     setfoucs(!focus)
@@ -14,21 +15,32 @@ const CustomIinput=({header,value,onchange})=>{
   React.useEffect(() => {
     // console.log(focus)
   },[focus]);
-
+  const InputValueHandler = e => {
+    setInputval(e);
+  };
     return(
        <View>
           <View style={{marginTop: hp('4%')}}>
             <Text style={[focus ? styles.activeheadertext : styles.disableheadertext]}>{header}</Text>
           </View>
           <TextInput
-            placeholder="Input empty"
-            style={[{color: '#5E6272',marginTop:hp('1.5%'),height:Platform.OS=="ios"?hp('5%'):hp('0%')},focus ? styles.activeheader : styles.disableheader]}
-            // style={[focus ? styles.activeheader : styles.disableheader]}
-          
-            placeholderTextColor="#5E6272"
-            onFocus={ updatefocus }
-            onBlur={ updatefocus }
-          />
+        value={inputval}
+        onChangeText={e => InputValueHandler(e)}
+        placeholder="Input empty"
+        style={[
+          focus ? styles.activeheader : styles.disableheader,
+          {
+            // color: '#5E6272',
+            marginTop: hp('1.5%'),
+            height: Platform.OS === 'ios' ? hp('5%') : hp('5%'),
+          },
+        ]}
+        // style={[focus ? styles.activeheader : styles.disableheader]}
+
+        placeholderTextColor="#5E6272"
+        onFocus={updatefocus}
+        onBlur={updatefocus}
+      />
           <View
             style={{marginTop:hp('1.5%')},[focus ?   styles.activeborder:styles.disableborder ]}
           />
@@ -63,11 +75,11 @@ color:'white',
 fontSize:16
 },
 activeheadertext:{
-  fontSize:10,
+  fontSize:wp('3.5%'),
   color:'white',
 },
 disableheadertext:{
-  fontSize:10,
+  fontSize:wp('3.5%'),
   color: '#5E6272'
 },
 disableheader:{
