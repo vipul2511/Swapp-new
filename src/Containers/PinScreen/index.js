@@ -20,7 +20,7 @@ import PopupModal from '../../Components/PopupModal';
 const PinCodeScreen = ({navigation}) => {
   const [password, setPassword] = useState(['', '', '', '', '']);
   const [biometryType, setbiometryType] = useState('');
-  const [showModal,setShowModal]=useState(false);
+  const [showModal, setShowModal] = useState(false);
   let Numbers = [
     {id: 1},
     {id: 2},
@@ -37,23 +37,22 @@ const PinCodeScreen = ({navigation}) => {
   const OnPressNumber = num => {
     let tempCode = password;
     for (var i = 0; i < tempCode.length; i++) {
-      if (tempCode[i] == '') {
+      if (tempCode[i] === '') {
         tempCode[i] = num;
-          break;
-      } 
-      else {
+        break;
+      } else {
         continue;
       }
     }
-    if(tempCode[4]!=''){
+    if (tempCode[4] != '') {
       navigation.goBack();
     }
-    setPassword(prePassword=>([...tempCode]));
+    setPassword(prePassword => [...tempCode]);
   };
 
   const OnpressCancel = () => {
     let tempCode = password;
-    if(password!=['', '', '', '', '']){
+    if (password !== ['', '', '', '', '']) {
       for (var i = tempCode.length - 1; i >= 0; i--) {
         if (tempCode[i] !== '') {
           tempCode[i] = '';
@@ -62,28 +61,25 @@ const PinCodeScreen = ({navigation}) => {
           continue;
         }
       }
-      setPassword(prePassword => ([...tempCode]));
+      setPassword(prePassword => [...tempCode]);
     }
-
-    
   };
 
   useEffect(() => {
     FingerprintScanner.isSensorAvailable()
       .then(bioType => {
         setbiometryType(bioType);
-        if(bioType=="Biometrics"){
+        if (bioType == 'Biometrics') {
           showAuthenticationDialog();
         }
-        if(bioType=="TouchID"){
+        if (bioType == 'TouchID') {
           showAuthenticationDialog();
         }
-        if(bioType=="Face ID"){
+        if (bioType == 'Face ID') {
           showAuthenticationDialog();
         }
       })
       .catch(error => console.log('isSensorAvailable error => ', error));
-
   }, []);
 
   const Getmessage = () => {
@@ -154,7 +150,12 @@ const PinCodeScreen = ({navigation}) => {
               <Image source={require('../../Assets/Images/BackText.png')} />
             </TouchableOpacity>
           </View>
-           {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('OnBoarding')}  />}
+          {showModal && (
+            <PopupModal
+              visible={true}
+              onPress={() => navigation.navigate('OnBoarding')}
+            />
+          )}
           {/* -------------- */}
 
           {/* --------------------- */}
