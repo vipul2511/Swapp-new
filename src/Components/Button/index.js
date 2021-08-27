@@ -41,7 +41,6 @@ const Button = props => {
         style={buttonStyleNode}
         onPress={onPress}>
         {!loading ? children : []}
-        {/* {loading ? (<Spinner color={'#fff'} />) : textNode} */}
         {textNode}
       </TouchableOpacity>
     </View>

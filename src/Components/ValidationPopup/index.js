@@ -44,8 +44,7 @@ const App = ({onPress, Show, showback}) => {
                 color: '#5E6272',
                 fontSize: 14,
                 textAlign: 'center',
-                // marginTop: hp('3%'),
-                // backgroundColor:'yellowzfs'
+                fontFamily: 'Inter-Regular',
               }}>
               You can choose 1 option
             </Text>

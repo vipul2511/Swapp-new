@@ -8,13 +8,13 @@ import {
 } from 'react-native-responsive-screen';
 import TransparentButton from '../../Components/TransparentButton';
 import ValidationPopup from '../../Components/ValidationPopup';
+import './styles';
+import Styles from './styles';
 
 const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
   const [Selectedvalue, setselectedvalue] = React.useState('');
-  // const [show, setshowValidpop] = React.useState(false);
   const selection = ['Privacy', 'Monetize', 'Both'];
-  // console.warn(show);
   const GetSelected = value => {
     setselectedvalue(value);
   };
@@ -27,33 +27,18 @@ const AcceptTerm = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#2C303A'}}>
+    <View style={Styles.Container}>
       {/* <StatusBar translucent={true} backgroundColor={'transparent'} /> */}
-      <Header navigation={navigation}/>
-      <View
-        style={{
-          height: hp('22%'),
-          width: wp('22%'),
-          overflow: 'hidden',
-          marginLeft: wp('5%'),
-        }}>
+      <Header navigation={navigation} />
+      <View style={Styles.Imgcon}>
         <Image
           source={require('../../Assets/Images/groupd4.png')}
           style={{resizeMode: 'contain', height: '100%', width: '100%'}}
         />
       </View>
-      <View
-        style={{
-          marginLeft: wp('5%'),
-          marginBottom: wp('5%'),
-          marginTop: wp('-2%'),
-        }}>
-        <Text style={{fontSize: 32, color: 'white', fontWeight: 'bold'}}>
-          Lets share you
-        </Text>
-        <Text style={{fontSize: 32, color: 'white', fontWeight: 'bold'}}>
-          business wording
-        </Text>
+      <View style={Styles.FontHeadCon}>
+        <Text style={Styles.headfont}>Lets share you</Text>
+        <Text style={Styles.headfont}>business wording</Text>
       </View>
       <SelectionBtn selection={selection} GetSelected={GetSelected} />
 
@@ -61,24 +46,16 @@ const AcceptTerm = ({navigation}) => {
         <TransparentButton
           onPress={updateshow}
           title="Got it"
-          style={{
-            width: wp('85%'),
-            height: hp('7.3%'),
-            backgroundColor: '#246BFD',
-            borderColor: '#246BFD',
-            // marginLeft: ,
-            marginLeft: wp('7%'),
-            marginTop: hp('5%'),
+          style={Styles.Transpbtn}
+          textStyle={{
+            fontWeight: 'bold',
+            fontSize: 14,
+            fontFamily: 'Inter-Regular',
           }}
-          textStyle={{fontWeight: 'bold', fontSize: 14}}
         />
       ) : null}
 
-      {/* </TouchableOpacity> */}
-      {/* <View style={{backgroundColor:'red',marginHorizontal:20,borderWidth:1,borderColor:'pink',shadowColor:'blue',elevation:20}}><Text>dash</Text></View> */}
-
-      {/* <ValidationPopup Show={true} /> */}
-      {showValidpop == true && (
+      {showValidpop === true && (
         <ValidationPopup Show={true} showback={updateshow} />
       )}
     </View>

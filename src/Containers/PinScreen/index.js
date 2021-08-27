@@ -106,9 +106,7 @@ const PinCodeScreen = ({navigation}) => {
       FingerprintScanner.authenticate({
         description: Getmessage(),
       })
-        .then(() => {
-          //you can write your logic here to what will happen on successful authentication
-        })
+        .then(() => {})
         .catch(error => {
           console.log('Authentication error is => ', error);
         });

@@ -1,12 +1,20 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-const styles = () => {
-    return (
-        <View>
-            <Text></Text>
-        </View>
-    )
-}
+const styles = StyleSheet.create({
+  HeaderCon: {flexDirection: 'row', marginTop: hp('2%')},
+  HeaderTextCon: {alignItems: 'center', justifyContent: 'center', flex: 1},
+  HeaderText: {
+    marginRight: wp('14%'),
+    fontSize: 20,
+    fontFamily: 'Poppins-SemiBold',
 
-export default styles
+    color: 'white',
+  },
+});
+
+export default styles;

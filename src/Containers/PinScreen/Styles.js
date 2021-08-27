@@ -51,7 +51,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  NumberText: {color: 'white', fontWeight: 'bold', fontSize: 32},
+  NumberText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 32,
+    fontFamily: 'Poppins-Regular',
+  },
 });
 
 export default styles;

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
     fontSize: 16,
+    fontFamily: 'Inter-Regular',
 
     flex: 1,
     marginLeft: hp('3%'),
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     color: '#5E6272',
     fontWeight: '600',
     fontSize: 16,
-
+    fontFamily: 'Inter-Regular',
     flex: 1,
     marginLeft: hp('3%'),
   },
