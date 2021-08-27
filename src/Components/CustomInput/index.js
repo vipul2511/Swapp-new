@@ -7,15 +7,24 @@ import {
   StatusBar,
   TextInput,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const CustomIinput = ({header, value, onchange}) => {
+const CustomIinput = ({
+  header,
+  value,
+  onchange,
+  placeholder,
+  securetext,
+  fontstyle,
+}) => {
   const [focus, setfoucs] = useState(false);
   const [inputval, setInputval] = useState('');
+  const [isshow, setIsShow] = useState(false);
 
   const updatefocus = () => {
     setfoucs(false);
@@ -34,28 +43,83 @@ const CustomIinput = ({header, value, onchange}) => {
     <View>
       <View style={{marginTop: hp('4%')}}>
         <Text
-          style={[focus ? styles.activeheadertext : styles.disableheadertext]}>
+          style={[
+            
+            focus ? styles.activeheadertext : styles.disableheadertext,fontstyle
+          ]}>
           {header}
         </Text>
       </View>
-      <TextInput
-        value={inputval}
-        onChangeText={e => InputValueHandler(e)}
-        placeholder="Input empty"
-        style={[
-          focus ? styles.activeheader : styles.disableheader,
-          {
-            // color: '#5E6272',
-            marginTop: hp('1.5%'),
-            height: Platform.OS === 'ios' ? hp('5%') : hp('5%'),
-          },
-        ]}
-        // style={[focus ? styles.activeheader : styles.disableheader]}
+      {securetext ? (
+        <TouchableOpacity
+          onPress={() => {
+            setIsShow(!isshow);
+          }}
+          style={{
+            height: 20,
+            width: 20,
+            overflow: 'hidden',
+            position: 'absolute',
+            right: wp('1%'),
+            top: hp('8%'),
+            zIndex: 100,
+          }}>
+          {isshow ? (
+            <Image
+              source={require('../../Assets/Images/Hide.png')}
+              style={{resizeMode: 'contain', height: '100%', width: '100%'}}
+            />
+          ) : (
+            <Image
+              source={require('../../Assets/Images/Show.png')}
+              style={{resizeMode: 'contain', height: '100%', width: '100%'}}
+            />
+          )}
+        </TouchableOpacity>
+      ) : null}
 
-        placeholderTextColor="#5E6272"
-        onFocus={updatefocus}
-        onBlur={updatefocus}
-      />
+      {securetext ? (
+        <TextInput
+          value={inputval}
+          secureTextEntry={isshow}
+          onChangeText={e => InputValueHandler(e)}
+          // placeholder="Input empty"
+          placeholder={placeholder}
+          style={[
+            focus ? styles.activeheader : styles.disableheader,
+            {
+              // color: '#5E6272',
+              marginTop: hp('1.5%'),
+              height: Platform.OS === 'ios' ? hp('5%') : hp('5%'),
+            },
+          ]}
+          // style={[focus ? styles.activeheader : styles.disableheader]}
+
+          placeholderTextColor="#5E6272"
+          onFocus={updatefocus}
+          onBlur={updatefocus}
+        />
+      ) : (
+        <TextInput
+          value={inputval}
+          onChangeText={e => InputValueHandler(e)}
+          // placeholder="Input empty"
+          placeholder={placeholder}
+          style={[
+            focus ? styles.activeheader : styles.disableheader,
+            {
+              // color: '#5E6272',
+              marginTop: hp('1.5%'),
+              height: Platform.OS === 'ios' ? hp('5%') : hp('5%'),
+            },
+          ]}
+          // style={[focus ? styles.activeheader : styles.disableheader]}
+
+          placeholderTextColor="#5E6272"
+          onFocus={updatefocus}
+          onBlur={updatefocus}
+        />
+      )}
       <View
         style={
           ({marginTop: hp('1.5%')},

@@ -130,7 +130,7 @@ const OnBoarding = ({navigation}) => {
           <Button
             title="Create your Swapp"
             style={styles.createSwapp}
-            onPress={() => navigation.navigate('PinScreen')}
+            onPress={() => navigation.navigate('EnterPassword')}
           />
           <View style={{marginTop: hp('3%')}}>
             <TransparentButton

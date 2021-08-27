@@ -8,7 +8,7 @@ const SplashScreen = ({navigation}) => {
     return () => {
       clearTimeout(timer1);
     };
-  }, [navigation]);
+  }, []);
   return (
     <View style={styles.Container}>
       <StatusBar backgroundColor="#2C303A" barStyle="light-content" />

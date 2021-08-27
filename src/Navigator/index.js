@@ -7,6 +7,9 @@ import OnBoarding from '../Containers/OnBoarding';
 import PinScreen from '../Containers/PinScreen';
 import NameScreen from '../Containers/NameScreen';
 import AcceptTerm from '../Containers/AcceptTerm';
+import EnterPassword from '../Containers/EnterPassword';
+import CreateNewPassword from '../Containers/CreateNewPassword';
+import CreateNewPassword1 from '../Containers/CreateNewPassword1';
 const Stack = createStackNavigator();
 
 function AppStack() {
@@ -36,6 +39,21 @@ function AppStack() {
         <Stack.Screen
           name="AcceptTerm"
           component={AcceptTerm}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="EnterPassword"
+          component={EnterPassword}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CreateNewPassword"
+          component={CreateNewPassword}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CreateNewPassword1"
+          component={CreateNewPassword1}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
