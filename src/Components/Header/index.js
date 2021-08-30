@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const Header = ({navigation}) => {
+const Header = ({navigation,hide}) => {
   return (
     <View style={{flexDirection: 'row', marginTop: hp('2%')}}>
       <View>
@@ -17,17 +17,18 @@ const Header = ({navigation}) => {
           {/* <ArrowLeft  height={15} width={15} /> */}
         </TouchableOpacity>
       </View>
-      <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+      {!hide?<View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
         <Text
           style={{
             marginRight: wp('14%'),
             fontSize: wp('5.5%'),
             fontWeight: '600',
             color: 'white',
+            fontFamily:'Poppins-SemiBold'
           }}>
           Registration
         </Text>
-      </View>
+      </View>:null}
     </View>
   );
 };

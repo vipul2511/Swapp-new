@@ -13,11 +13,14 @@ export default StyleSheet.create({
     },
     title: {
         color:'white',
-        fontSize:wp('10%'),
+        fontSize:wp('8%'),
+        fontFamily:'Poppins-SemiBold'
     },
     text: {
-        width:wp('60%'),
-        color:'gray',
+        width:wp('95%'),
+        color:'#5E6272',
+        lineHeight:hp('3.5%'),
         fontSize:wp('3.8%'),
+        fontFamily:'Inter-Regular'
     },
 })

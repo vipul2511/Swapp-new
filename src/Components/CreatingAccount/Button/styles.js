@@ -20,6 +20,7 @@ export default StyleSheet.create({
     },
     buttonText: {
         color:'white',
-        fontSize: wp('4.2%')
+        fontSize: wp('4.2%'),
+        fontFamily:'Inter-Bold'
     },
 })

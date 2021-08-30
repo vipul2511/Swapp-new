@@ -17,8 +17,9 @@ export default StyleSheet.create({
     },
     title: {
         color:'white',
-        fontSize:hp('5.6%'),
-        textAlign:'center'
+        fontSize:hp('4.7%'),
+        textAlign:'center',
+        fontFamily:'Poppins-SemiBold'
     },
     pointsBlock: {
       marginTop: hp('2%'),
@@ -42,7 +43,8 @@ export default StyleSheet.create({
         lineHeight: hp('3.2%'),
         color:'white',
         fontSize: wp('4%'),
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        fontFamily:'Inter-Regular'
     },
     signatureContainer: {
         marginTop:hp('1%'),

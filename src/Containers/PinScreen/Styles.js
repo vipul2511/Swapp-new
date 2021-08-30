@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    marginHorizontal: wp('30%'),
-    marginTop: hp('4%'),
+    marginHorizontal: wp('35%'),
+    marginTop: hp('2%'),
   },
   Code1: {height: 10, width: 10, borderRadius: 20, backgroundColor: '#262A34'},
   Code2: {
@@ -27,18 +27,18 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#246BFD',
     shadowColor: '#246BFD',
+    // overflow: "hidden",
     shadowOffset: {
-      width: 7,
-      height: 7,
+      width: 1,
+      height: 1,
     },
-    shadowOpacity: 0.43,
-    shadowRadius: 12,
-
-    elevation: 20,
+    shadowOpacity: 0.6,
+    shadowRadius: 5,
+    elevation:5,
   },
 
   NumberCon: {
-    marginTop: hp('3%'),
+    marginTop: hp('7%'),
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',

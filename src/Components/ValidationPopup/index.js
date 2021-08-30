@@ -47,6 +47,7 @@ const App = ({onPress, Show, showback}) => {
                 textAlign: 'center',
                 // marginTop: hp('3%'),
                 // backgroundColor:'yellowzfs'
+                fontFamily:'Inter-Regular'
               }}>
               You can choose 1 option
             </Text>
@@ -64,11 +65,12 @@ const App = ({onPress, Show, showback}) => {
                 height: hp('7.3%'),
                 backgroundColor: '#246BFD',
                 borderColor: '#246BFD',
+                
                 // marginTop:20padding
                 // paddingBottom:5
                 // marginLeft:wp('5%')
               }}
-              textStyle={{fontWeight: 'bold', fontSize: 14}}
+              textStyle={{fontFamily:'Inter-Bold', fontSize: wp('4.5%')}}
             />
           </View>
         </View>

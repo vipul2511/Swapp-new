@@ -44,6 +44,7 @@ export default StyleSheet.create({
     },
     wordBtnText: {
         fontSize:wp('3.6%'),
+        fontFamily:'Inter-Medium'
     },
     attachedWordContainer: {
         height:'20%',
@@ -64,18 +65,19 @@ export default StyleSheet.create({
     },
     title: {
         color: '#FFFFFF',
-        fontWeight:'600',
-        fontSize:hp('4.4%'),
+        fontSize:hp('3.7%'),
+        fontFamily:'Poppins-SemiBold'
     },
     text: {
-        paddingTop:hp('1.2%'),
         color: '#5E6272',
-        fontSize:hp('2.4%'),
+        fontSize:hp('2.3%'),
+        fontFamily:'Inter-Regular'
     },
     attachedWordText: {
         color:'#FFFFFF',
         fontSize:wp('4.0%'),
         paddingRight:wp('0.8%'),
+        fontFamily:'Inter-Medium'
     },
     wordBtnBlock: {
         height:hp('24%'),

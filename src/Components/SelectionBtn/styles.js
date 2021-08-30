@@ -6,7 +6,7 @@ import {
 
 const styles = StyleSheet.create({
   disablebutton: {
-    backgroundColor: '#2C303A',
+    backgroundColor: '#181A20',
     marginHorizontal: wp('5%'),
     borderColor: '#5E6272',
     borderWidth: 1,
@@ -31,16 +31,16 @@ const styles = StyleSheet.create({
   btntext: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 16,
-
+    fontSize: wp('4.5%'),
+     fontFamily:'Inter-Medium',
     flex: 1,
     marginLeft: hp('3%'),
   },
   btntextdisable: {
     color: '#5E6272',
     fontWeight: '600',
-    fontSize: 16,
-
+    fontSize: wp('4.5%'),
+    fontFamily:'Inter-Medium',
     flex: 1,
     marginLeft: hp('3%'),
   },

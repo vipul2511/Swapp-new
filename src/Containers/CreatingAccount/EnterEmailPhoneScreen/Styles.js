@@ -16,7 +16,8 @@ export default StyleSheet.create({
     inputTitle: {
         color:'white',
         fontSize:wp('3.0%'),
-        fontWeight:'bold'
+        marginBottom:hp('2%'),
+        fontFamily:'Inter-Bold'
     },
     inputBlock: {
         marginTop:hp('6%'),
@@ -32,6 +33,7 @@ export default StyleSheet.create({
         borderBottomColor: '#246BFD',
         borderBottomWidth:2,
         color:'white',
-        fontSize:wp('5.0%'),
+        fontSize:wp('4.5%'),
+        fontFamily:'Inter-SemiBold'
     },
 })

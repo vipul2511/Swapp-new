@@ -46,7 +46,7 @@ const PinCodeScreen = ({navigation}) => {
       }
     }
     if(tempCode[4]!=''){
-      navigation.goBack();
+      navigation.navigate('CreateNewPassword');
     }
     setPassword(prePassword=>([...tempCode]));
   };
@@ -118,10 +118,10 @@ const PinCodeScreen = ({navigation}) => {
     <>
       <View style={styles.MainCon}>
         <View style={styles.ImageCon}>
-          <Image source={require('../../Assets/Images/Group46300.png')} />
+          <Image source={require('../../Assets/Images/Group46300.png')} style={{width:wp('60%'),height:hp('35%')}} />
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{color: '#5E6272'}}>Enter PIN code</Text>
+          <Text style={{color: '#5E6272',fontFamily:'Inter-Regular'}}>Enter PIN code</Text>
         </View>
         <View style={styles.CodeCon}>
           {password.map((p, index) => {
@@ -143,18 +143,18 @@ const PinCodeScreen = ({navigation}) => {
           })}
 
           <View
-            style={{position: 'absolute', bottom: hp('3%'), left: wp('20%')}}>
+            style={{position: 'absolute', bottom: hp('2%'), left: wp('15%')}}>
             <TouchableOpacity onPress={showAuthenticationDialog}>
               <Image source={require('../../Assets/Images/TouchId.png')} />
             </TouchableOpacity>
           </View>
           <View
-            style={{position: 'absolute', bottom: hp('5%'), right: wp('20%')}}>
+            style={{position: 'absolute', bottom: hp('3%'), right: wp('15%')}}>
             <TouchableOpacity onPress={OnpressCancel}>
               <Image source={require('../../Assets/Images/BackText.png')} />
             </TouchableOpacity>
           </View>
-           {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('OnBoarding')}  />}
+           {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('CreateNewPassword')}  />}
           {/* -------------- */}
 
           {/* --------------------- */}

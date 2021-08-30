@@ -12,6 +12,10 @@ import ConfirmBackupPhaseScreen from "../Containers/CreatingAccount/ConfirmBacku
 import PinCodeScreen from "../Containers/PinScreen";
 import NameScreen from "../Containers/NameScreen";
 import AcceptTerm from "../Containers/AcceptTerm";
+import CreateNewPasscode from '../Containers/CreateNewPassCode';
+import CreateNewPassword from '../Containers/CreateNewPassword';
+import EnterPassword from '../Containers/EnterPassword';
+import ConfirmPassCode from '../Containers/ConfirmPasscode';
 const Stack = createStackNavigator();
 
 function AppStack() {
@@ -29,6 +33,10 @@ function AppStack() {
           <Stack.Screen name="PinScreen" component={PinCodeScreen} options={{headerShown:false}} />
           <Stack.Screen name="NameScreen" component={NameScreen} options={{headerShown:false}} />
           <Stack.Screen name="AcceptTerm" component={AcceptTerm} options={{headerShown:false}} />
+          <Stack.Screen name="CreateNewPasscode" component={CreateNewPasscode} options={{headerShown:false}} />
+          <Stack.Screen name="CreateNewPassword" component={CreateNewPassword} options={{headerShown:false}} />
+          <Stack.Screen name="EnterPassword" component={EnterPassword} options={{headerShown:false}} />
+          <Stack.Screen name="ConfirmPassCode" component={ConfirmPassCode} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

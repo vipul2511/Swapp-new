@@ -21,7 +21,7 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: wp('4.2%'),
     textAlign: 'center',
-    fontWeight:'bold',
+    fontFamily:'Inter-Bold',
     marginRight:Platform.OS=="ios"?wp('5%'):wp('5%')
   },
 

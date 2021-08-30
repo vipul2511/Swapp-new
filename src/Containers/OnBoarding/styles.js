@@ -48,13 +48,12 @@ const styles = StyleSheet.create({
   getitView:{
   width:wp('100%'),
   position:'absolute',
-  top:hp('45%'),
+  top:hp('46%'),
   left:wp('8%')
   },
   getitText:{
    fontSize:wp('9%'),
-   fontWeight:'bold',
-   fontFamily:Platform.OS=="android"?'Roboto':'Gill Sans',
+   fontFamily:'Poppins-SemiBold',
    color:'#FFFFFF',
    lineHeight: wp('10%'),
   },

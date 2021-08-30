@@ -107,9 +107,9 @@ const OnBoarding=({navigation})=>{
             </View>
           </View>
           <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:hp('3%')}}>
-            <Text style={{color:'#5E6272',fontSize:wp('3.8%')}}>Already have an account ?</Text>
+            <Text style={{color:'#5E6272',fontSize:wp('3.8%'),fontFamily:'Inter-Regular'}}>Already have an account ?</Text>
             <TouchableOpacity>
-            <Text style={{color:'#246BFD',fontSize:wp('3.8%'),textShadowColor: '#246BFD',
+            <Text style={{color:'#246BFD',fontSize:wp('3.8%'),fontFamily:'Inter-Bold',textShadowColor: '#246BFD',
   textShadowOffset: {width: -1, height: 0},
   textShadowRadius: 30}}> Sign In</Text>
             </TouchableOpacity>

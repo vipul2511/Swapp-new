@@ -9,6 +9,8 @@ import {
 import TransparentButton from '../../Components/TransparentButton';
 import ValidationPopup from '../../Components/ValidationPopup';
 import PopupModal from '../../Components/PopupModal';
+import Styles from './styles';
+import Button from '../../Components/CreatingAccount/Button';
 const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
   const [Selectedvalue, setselectedvalue] = React.useState('');
@@ -26,7 +28,7 @@ const AcceptTerm = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#2C303A'}}>
+    <View style={{flex: 1, backgroundColor: '#181A20'}}>
       <View style={{marginTop:hp('5%')}}>
       <Header navigation={navigation}/>
       </View>
@@ -42,36 +44,28 @@ const AcceptTerm = ({navigation}) => {
           style={{resizeMode: 'contain', height: '100%', width: '100%'}}
         />
       </View>
-      <View
-        style={{
-          marginLeft: wp('5%'),
-          marginBottom: wp('5%'),
-          marginTop: wp('-2%'),
-        }}>
-        <Text style={{fontSize: 32, color: 'white', fontWeight: '600'}}>
-          Lets share you
-        </Text>
-        <Text style={{fontSize: 32, color: 'white', fontWeight: '600'}}>
-          business wording
-        </Text>
+      <View style={Styles.FontHeadCon}>
+        <Text style={Styles.headfont}>Lets share you</Text>
+        <Text style={Styles.headfont}>business wording</Text>
       </View>
       <SelectionBtn selection={selection} GetSelected={GetSelected} />
 
       {!showValidpop ? (
-        <TransparentButton
-          onPress={updateshow}
-          title="Got it"
-          style={{
-            width: wp('85%'),
-            height: hp('7.3%'),
-            backgroundColor: '#246BFD',
-            borderColor: '#246BFD',
-            // marginLeft: ,
-            marginLeft: wp('7%'),
-            marginTop: hp('5%'),
-          }}
-          textStyle={{fontWeight: 'bold', fontSize: 14}}
-        />
+        // <TransparentButton
+        //   onPress={updateshow}
+        //   title="Got it"
+        //   style={{
+        //     width: wp('85%'),
+        //     height: hp('7.3%'),
+        //     backgroundColor: '#246BFD',
+        //     borderColor: '#246BFD',
+        //     // marginLeft: ,
+        //     marginLeft: wp('7%'),
+        //     marginTop: hp('5%'),
+        //   }}
+        //   textStyle={{fontWeight: 'bold', fontSize: 14}}
+        // />
+        <Button handleFunction={updateshow} btnText={'Got it'}/>
       ) : null}
 
  {/* {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('PinScreen')}  />} */}

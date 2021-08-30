@@ -35,8 +35,9 @@ export default StyleSheet.create({
     },
     word: {
         paddingLeft:wp('1.4%'),
-        fontSize:wp('4%'),
-        color:'white'
+        fontSize:wp('3.8%'),
+        color:'white',
+        fontFamily:'Inter-Medium'
     },
     number: {
         fontSize:wp('4%'),
@@ -67,6 +68,7 @@ export default StyleSheet.create({
         color:'#FF0B80',
         fontSize:wp('3.8%'),
         width:wp('60%'),
+        fontFamily:'Inter-Medium'
     },
     warningIconContainer: {
         width:'20%',
@@ -81,9 +83,10 @@ export default StyleSheet.create({
         justifyContent:'center'
     },
     title: {
-      fontSize: wp('8%'),
+      fontSize: wp('6%'),
         color:'white',
-        textAlign:'center'
+        textAlign:'center',
+        fontFamily:'Poppins-SemiBold'
     },
     text: {
         marginTop:hp('1.4%'),
@@ -93,6 +96,7 @@ export default StyleSheet.create({
         textAlign:'center',
         fontSize: wp('4%'),
         lineHeight: hp('3%'),
+        fontFamily:'Inter-Regular'
     },
     btnContainer: {
         width:wp('100%'),

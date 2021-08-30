@@ -39,6 +39,7 @@ export default StyleSheet.create({
         color:'white',
         fontSize:wp('3.8%'),
         width:'90%',
+        fontFamily:'Inter-SemiBold',
         alignSelf:'center',
         paddingVertical:hp('1%'),
     },
@@ -68,11 +69,13 @@ export default StyleSheet.create({
     },
     additionalPostscriptTitle: {
         color:'#5E6272',
-        fontSize:wp('3.8%')
+        fontSize:wp('3.8%'),
+        fontFamily:'Inter-Regular'
     },
     additionalPostscriptBtnText: {
         color:'#246BFD',fontSize:wp('3.8%'),textShadowColor: '#246BFD',
         textShadowOffset: {width: -1, height: 0},
-        textShadowRadius: 30
+        textShadowRadius: 30,
+        fontFamily:'Inter-Bold'
     }
 })

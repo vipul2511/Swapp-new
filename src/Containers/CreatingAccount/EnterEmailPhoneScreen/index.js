@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     KeyboardAvoidingView,
     SafeAreaView,
@@ -11,10 +11,16 @@ import styles from './Styles';
 import BackArrow from "../../../Components/CreatingAccount/BackArrow";
 import Title from "../../../Components/CreatingAccount/Title";
 import Button from "../../../Components/CreatingAccount/Button";
-
+// import { FloatingLabelInput } from 'react-native-floating-label-input';
+import FloatingLabelInput from '../../../Components/FloatingTextInput';
 const EnterEmailPhoneScreen = ({navigation}) => {
+    const [cont,setCont]=useState('');
+    const [email,setemail]=useState('');
     function handleFunction(){
         navigation.navigate('Verification')
+    }
+    function handleTextChange(text){
+      setCont(text);
     }
     return (
         <SafeAreaView style={styles.container}>
@@ -25,10 +31,19 @@ const EnterEmailPhoneScreen = ({navigation}) => {
                 <Title title={'Create your Swapp'} text={'We will send verification code on your email ID.'}/>
 
                <View style={styles.inputBlock}>
-                   <Text style={styles.inputTitle}>ENTER YOUR EMAIL</Text>
+                   {/* <Text style={styles.inputTitle}>ENTER YOUR EMAIL</Text>
                    <TextInput
                        style={styles.input}
-                   />
+                   />  */}
+                  <FloatingLabelInput
+          label="ENTER YOUR EMAIL"
+          titleStyle={styles.inputTitle}
+          inputStyle={styles.input}
+          value={cont}
+          onChangeText={handleTextChange}
+        />
+
+                    
                </View>
 
                 <Button handleFunction={()=>handleFunction()} btnText={'Send Verification Code'}/>

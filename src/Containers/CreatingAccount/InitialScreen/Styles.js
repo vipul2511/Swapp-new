@@ -45,10 +45,12 @@ export default StyleSheet.create({
         marginLeft:'5%'
     },
     optionTitle: {
-        color:'white'
+        color:'white',
+        fontFamily:'Inter-Bold'
     },
     optionText: {
-        color:'white'
+        color:'#5E6272',
+        fontFamily:'Inter-Regular'
     },
     nextIcon: {
         width:wp('10.0%'),
@@ -59,7 +61,8 @@ export default StyleSheet.create({
     },
     title: {
         color:'white',
-        fontSize:wp('10.0%'),
+        fontSize:wp('9%'),
+        fontFamily:'Poppins-SemiBold'
     },
     bodyImage: {
         width:wp('90%'),
@@ -68,6 +71,7 @@ export default StyleSheet.create({
     },
     text: {
         color:'gray',
-        fontSize:wp('4.6%'),
+        fontSize:wp('4.3%'),
+        fontFamily:'Inter-Regular'
     }
 })

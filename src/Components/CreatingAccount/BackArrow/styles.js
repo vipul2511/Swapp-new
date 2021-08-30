@@ -11,7 +11,7 @@ export default StyleSheet.create({
     },
     img: {
         position:'absolute',
-        width:wp('6%'),
+        width:wp('4%'),
         marginLeft:'4%',
         height:'100%',
         resizeMode: 'contain'

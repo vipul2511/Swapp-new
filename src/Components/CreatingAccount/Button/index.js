@@ -3,7 +3,7 @@ import {Text, TouchableOpacity, View} from "react-native";
 import styles from './styles';
 
 const Button = (props) => {
-    const { btnText, isTransparent, handleFunction } = props;
+    const { btnText, isTransparent,style, handleFunction } = props;
     return (
         <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -11,10 +11,10 @@ const Button = (props) => {
                     backgroundColor: '#ffffff00',
                     borderWidth: 1,
                     borderColor: '#5E6272',
-                } : {backgroundColor: '#246BFD'}]}
+                } : {backgroundColor: style?'#262A34':'#246BFD'}]}
                 onPress={() => {handleFunction()}}
             >
-                <Text style={styles.buttonText}>{btnText}</Text>
+                <Text style={[styles.buttonText,{color:style?'#3A3D46':'white'}]}>{btnText}</Text>
             </TouchableOpacity>
         </View>
     )

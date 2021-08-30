@@ -43,7 +43,7 @@ const RecoveryPhaseScreen = ({navigation}) => {
             </View>
 
             <Text style={styles.title}>Your recovery phase</Text>
-            <Text style={styles.text}>Write down or copy these words in the righ order and save them somwhere safe.</Text>
+            <Text style={styles.text}>Write down or copy these words in the right order and save them somwhere safe.</Text>
 
             <View style={styles.wordsBlock}>
                 <Word text={'fence'} n={'1'}/>
