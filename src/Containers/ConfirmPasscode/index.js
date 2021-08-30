@@ -25,7 +25,7 @@ const ConfirmPassCode = ({navigation}) => {
             fontFamily:'Poppins-SemiBold'
 
           }}>
-          Create new passcode
+          {/* Create new passcode */}
         </Text>
       </View>
       <Pinkeyboard navigation={navigation} confirm={true} onSucess={onSucess}/>

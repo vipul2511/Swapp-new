@@ -1,16 +1,23 @@
-import React,{useState} from 'react';
-import {View, Text, Image,Platform, StatusBar,TouchableOpacity, TextInput,StyleSheet} from 'react-native';
+import React,{useState,useRef} from 'react';
+import {View, Text, Image,Platform,Animated, StatusBar,TouchableOpacity, TextInput,StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const CustomIinput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorder,warning})=>{
+const CustomInput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorder,warning})=>{
+  const moveText = useRef(new Animated.Value(0)).current;
   const [focus,setfoucs] = useState(false);
   const [isshow,setIsShow] =useState(securetext);
   const updatefocus = () => {
     setfoucs(!focus)
+    if(value=='') moveTextTop(); 
   }
+  const onBlurHandler = () => {
+    if(value=='') moveTextBottom();
+      
+      setfoucs(!focus)
+  };
   React.useEffect(() => {
     // console.log(focus)
   },[focus]);
@@ -21,17 +28,53 @@ const CustomIinput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorde
      if(!focus) return 10;
      else return 0;
     }
+    const moveTextTop = () => {
+      Animated.timing(moveText, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    };
+    const moveTextBottom = () => {
+      Animated.timing(moveText, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    };
+    const yVal = moveText.interpolate({
+      inputRange: [0, 1],
+      outputRange: [30, 3],
+    });
+    const InitalVal = moveText.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 4],
+    });
+    const aniStyle = {
+      transform: [
+        {
+          translateY: InitalVal,
+        },
+      ],
+    };
+    const animStyle = {
+      transform: [
+        {
+          translateY: yVal,
+        },
+      ],
+    };
     return(
        <View>
-          <View style={{marginTop: hp('3%')}}>
-            <Text style={[focus ? styles.activeheadertext : styles.disableheadertext,{top:setFocus(value)}]}>{header}</Text>
-          </View>
+          <Animated.View style={[value==''?animStyle:aniStyle]}>
+            <Text style={[focus ? styles.activeheadertext : styles.disableheadertext]}>{header}</Text>
+          </Animated.View>
           <>
           {eye?<TouchableOpacity
             onPress={() => {
               setIsShow(!isshow);
             }}
-            style={[eyeStyle,{top:focus?hp('8%'):hp('5%')}]}>
+            style={[eyeStyle,{top:focus?hp('5%'):hp('5%')}]}>
             <Image
               source={isshow?require('../../Assets/Images/Hide.png'):require('../../Assets/Images/Show.png')}
               style={{resizeMode: 'contain', height: '100%', width: '100%'}}
@@ -48,12 +91,12 @@ const CustomIinput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorde
             // color: '#5E6272',
             height: Platform.OS === 'ios' ? hp('6%') : hp('6%'),
           },
-          style
+        style
         ]}
 
         placeholderTextColor="#5E6272"
         onFocus={updatefocus}
-        onBlur={updatefocus}
+        onBlur={onBlurHandler}
         blurOnSubmit
       />
       </>
@@ -97,19 +140,21 @@ fontFamily:'Inter-SemiBold'
 activeheadertext:{
   fontSize:wp('3.3%'),
   color:'white',
-  fontFamily:'Inter-Bold'
+  fontFamily:'Inter-Bold',
+  // position: 'absolute',
 },
 disableheadertext:{
   fontSize:wp('3.3%'),
   color: '#5E6272',
   fontFamily:'Inter-Bold',
-  position: 'absolute',
+  // position: 'absolute',
 
    
 },
 disableheader:{
   color: '#5E6272',
-  fontSize:16
+  fontSize:16,
+  fontFamily:'Inter-SemiBold'
 },
 
 Passactiveborder: {
@@ -144,4 +189,4 @@ Passdisableborder: {
   borderBottomWidth: 1.5,
 },
 });
-export default  CustomIinput
+export default  CustomInput

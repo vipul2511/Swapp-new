@@ -145,13 +145,21 @@ const PinCodeScreen = ({navigation}) => {
           <View
             style={{position: 'absolute', bottom: hp('2%'), left: wp('15%')}}>
             <TouchableOpacity onPress={showAuthenticationDialog}>
-              <Image source={require('../../Assets/Images/TouchId.png')} />
+              <View style={{height:50,width:50,overflow:'hidden'}}>
+              <Image source={require('../../Assets/Images/TouchId.png')} style={{height:'100%',width:'100%',resizeMode:'contain'}} />
+
+              </View>
             </TouchableOpacity>
           </View>
           <View
             style={{position: 'absolute', bottom: hp('3%'), right: wp('15%')}}>
             <TouchableOpacity onPress={OnpressCancel}>
-              <Image source={require('../../Assets/Images/BackText.png')} />
+              <View style={{height:35,width:35,overflow:'hidden'}}>
+              <Image source={require('../../Assets/Images/BackText.png')} style={{height:'100%',width:'100%',resizeMode:'contain'}} />
+              {/* <Image source={require('../../Assets/Images/BackText.png')} /> */}
+
+              </View>
+              
             </TouchableOpacity>
           </View>
            {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('CreateNewPassword')}  />}
