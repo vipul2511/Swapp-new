@@ -7,9 +7,12 @@ import {
 import BackArrow from '../../Components/CreatingAccount/BackArrow';
 import Pinkeyboard from '../../Components/Pinkeyboard';
 import Button from '../../Components/CreatingAccount/Button';
+import { useRoute } from '@react-navigation/native';
 const CreateNewPasscode = ({navigation}) => {
+  const route = useRoute();
   function onSucess(){
-    navigation.navigate('ConfirmPassCode');
+    navigation.navigate('ConfirmPassCode',{InitalScreen:route?.params?.InitalScreen});
+    // navigation.navigate('RecoveryPhaseScreen');
   }
   return (
     <View style={{backgroundColor: '#181A20', flex: 1}}>

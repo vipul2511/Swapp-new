@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
 import Header from '../../Components/Header';
 import SelectionBtn from '../../Components/SelectionBtn';
@@ -14,7 +14,8 @@ import Button from '../../Components/CreatingAccount/Button';
 const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
   const [Selectedvalue, setselectedvalue] = React.useState('');
-  const [showModal,setshowModal]=React.useState(false);
+  // const [showModal,setshowModal]= React.useState(false);
+  const [PopModal,setPopModal] =useState(false)
   const selection = ['Privacy', 'Monetize', 'Both'];
   const GetSelected = value => {
     setselectedvalue(value);
@@ -23,7 +24,7 @@ const AcceptTerm = ({navigation}) => {
     if (Selectedvalue === '') {
       setshowValidpop(!showValidpop);
     } else {
-      navigation.navigate('PinScreen')
+     setPopModal(true)
     }
   };
 
@@ -68,7 +69,7 @@ const AcceptTerm = ({navigation}) => {
         <Button handleFunction={updateshow} btnText={'Got it'}/>
       ) : null}
 
- {/* {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('PinScreen')}  />} */}
+ {PopModal&&<PopupModal visible={true} children={"You have registered your Swap account. Have a good use of the app."} height={'55%'} onPress={()=>navigation.navigate('OnBoarding')}  />}
       {showValidpop == true && (
         <ValidationPopup Show={true} showback={updateshow} />
       )}

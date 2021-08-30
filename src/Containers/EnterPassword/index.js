@@ -18,7 +18,6 @@ import TransparentButton from '../../Components/TransparentButton';
 import Button from '../../Components/CreatingAccount/Button';
 import Styles from './styles';
 import BackArrow from '../../Components/CreatingAccount/BackArrow';
-import CustomIinput from '../../Components/CustomInput';
 
 const EnterPassword = ({navigation}) => {
   const [isshow, setIsShow] = useState(false);

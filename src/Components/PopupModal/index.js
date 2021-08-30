@@ -3,7 +3,8 @@ import { Alert, Modal, StyleSheet,Image, Text, Pressable, View } from "react-nat
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import TransparentButton from '../../Components/TransparentButton';
 
-const PopupModal = ({visible,onPress}) => {
+
+const PopupModal = ({visible,onPress,children,height }) => {
   const [modalVisible, setModalVisible] = useState(visible);
   return (
     <View style={styles.centeredView}>
@@ -11,13 +12,10 @@ const PopupModal = ({visible,onPress}) => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
+       
       >
         <View style={[styles.centeredView]}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView,{height:hp(height)}]}>
           
       <View style={{height:hp('23%'),width:wp('100%'),justifyContent:'center',alignItems:'center'}}>
       <Image source={require('../../Assets/Images/ModalImage.png')} style={{height:hp('20%'),width:wp('45%'),justifyContent:'center',alignItems:'center'}} />
@@ -25,9 +23,10 @@ const PopupModal = ({visible,onPress}) => {
              <View style={{marginVertical:hp('1%')}}>
             <Text style={styles.modalText}>Congratulations!</Text>
             <View style={{width:wp('85%')}}>
-              <Text style={styles.modalText2}>
-              You received <Text style={{color:'#246BFD'}} >30 swapp coins </Text> for registering in the app! Use the application, get data points to get even more coins.
+              <Text style={styles.modalText2}> 
+              {children}
               </Text>
+           
             </View>
             <View style={{marginVertical:hp('5%')}}>
             <TransparentButton title="Get start!" onPress={onPress} style={{width:wp('85%'),height:hp('7.3%'),backgroundColor:'#246BFD',borderColor: null}} textStyle={{fontWeight:'bold'}}/>
@@ -57,13 +56,14 @@ const styles = StyleSheet.create({
   },
   modalText2:{
   color:'#5E6272',
-  fontSize:wp('4.4%'),
+  fontSize:wp('4%'),
   lineHeight:hp('4%'),
-  textAlign:'center'
+  textAlign:'center',
+  fontFamily:'Inter-Medium'
   },
   modalView: {
     // margin: 10,
-    width:wp('90%'),height:hp('60%'),
+    width:wp('90%'),
     backgroundColor: "#262A34",
     borderColor:"#3A3D46",
     borderRadius: 20,
@@ -91,8 +91,9 @@ const styles = StyleSheet.create({
     marginBottom: hp('3.5%'),
     textAlign: "center",
     fontSize:wp('6%'),
-    fontWeight: "bold",
-    color:'#fff'
+    // fontWeight: "bold",
+    color:'#fff',
+    fontFamily:'Poppins-SemiBold'
   }
 });
 

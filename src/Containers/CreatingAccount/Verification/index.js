@@ -72,7 +72,7 @@ const Verification = ({navigation}) => {
                 </View>
             </View>
 
-            <Button handleFunction={()=>navigation.navigate('ThreeThingsScreen')} btnText={'Verify account'}/>
+            <Button handleFunction={()=>navigation.navigate('CreateNewPassword')} btnText={'Verify account'}/>
         </KeyboardAvoidingView>
         </SafeAreaView>
     )

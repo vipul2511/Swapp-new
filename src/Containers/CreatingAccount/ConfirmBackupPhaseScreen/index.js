@@ -87,7 +87,7 @@ const ConfirmBackupPhaseScreen = ({navigation}) => {
                 }
             </View>
 
-            <Button handleFunction={()=>navigation.navigate('NameScreen')} btnText={'Confirm'}/>
+            <Button handleFunction={()=>navigation.navigate('AcceptTerm')} btnText={'Confirm'}/>
         </KeyboardAvoidingView>
         </SafeAreaView>
     )

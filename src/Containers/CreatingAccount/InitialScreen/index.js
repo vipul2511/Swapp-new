@@ -48,6 +48,7 @@ const InitialScreen = ({navigation}) => {
                 />
 
                 <OptionBlock
+                 onPress={()=>navigation.navigate('EnterEmailPhoneScreen')}
                     img={require('../../../Assets/Images/phone.png')}
                     title={'Register via SMS'}
                     text={'If you have email linked to account'}

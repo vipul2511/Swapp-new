@@ -46,7 +46,7 @@ const PinCodeScreen = ({navigation}) => {
       }
     }
     if(tempCode[4]!=''){
-      navigation.navigate('CreateNewPassword');
+      navigation.navigate('EnterPassword');
     }
     setPassword(prePassword=>([...tempCode]));
   };

@@ -17,8 +17,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Button from '../../Components/CreatingAccount/Button';
+import { useRoute } from '@react-navigation/native';
 const CreateNewPassword = ({navigation}) => {
   const [Password, setPassword] = useState('');
+  const route = useRoute();
   const [confirmPassword, setConfirmPassword] = useState('');
   return (
     <SafeAreaView style={Styles.container}>
@@ -85,7 +87,7 @@ const CreateNewPassword = ({navigation}) => {
           </View>
         </ScrollView>
         <Button
-          handleFunction={() => navigation.navigate('CreateNewPasscode')}
+          handleFunction={() => navigation.navigate('CreateNewPasscode',{InitalScreen:route?.params?.InitalScreen})}
           btnText={'Create'}
         />
       </KeyboardAvoidingView>
