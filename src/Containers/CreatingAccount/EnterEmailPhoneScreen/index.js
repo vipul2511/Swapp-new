@@ -14,6 +14,11 @@ import Button from '../../../Components/CreatingAccount/Button';
 // import { FloatingLabelInput } from 'react-native-floating-label-input';
 import FloatingLabelInput from '../../../Components/FloatingTextInput';
 import CustomInput from '../../../Components/CustomInput';
+
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 // import f from './c'
 const EnterEmailPhoneScreen = ({navigation}) => {
   const [cont, setCont] = useState('');
@@ -31,7 +36,9 @@ const EnterEmailPhoneScreen = ({navigation}) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{flex: 1}}>
         <StatusBar backgroundColor="#181A20" barStyle="light-content" />
-        <BackArrow />
+        <View style={{marginTop:hp('2%')}}>
+        <BackArrow  />
+        </View>
 
         <Title
           title={'Create your Swapp'}

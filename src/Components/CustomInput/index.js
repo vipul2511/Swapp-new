@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const CustomInput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorder,warning})=>{
+const CustomInput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorder,warning,headertextstyle})=>{
   const moveText = useRef(new Animated.Value(0)).current;
   const [focus,setfoucs] = useState(false);
   const [isshow,setIsShow] =useState(securetext);
@@ -67,14 +67,14 @@ const CustomInput=({header,eye,eyeStyle,value,onchange,securetext,style,noBorder
     return(
        <View>
           <Animated.View style={[value==''?animStyle:aniStyle]}>
-            <Text style={[focus ? styles.activeheadertext : styles.disableheadertext]}>{header}</Text>
+            <Text style={[headertextstyle,focus ? styles.activeheadertext : styles.disableheadertext]}>{header}</Text>
           </Animated.View>
           <>
           {eye?<TouchableOpacity
             onPress={() => {
               setIsShow(!isshow);
             }}
-            style={[eyeStyle,{top:focus?hp('5%'):hp('5%')}]}>
+            style={[eyeStyle]}>
             <Image
               source={isshow?require('../../Assets/Images/Hide.png'):require('../../Assets/Images/Show.png')}
               style={{resizeMode: 'contain', height: '100%', width: '100%'}}
@@ -138,6 +138,7 @@ fontSize:16,
 fontFamily:'Inter-SemiBold'
 },
 activeheadertext:{
+  // marginTop:20,
   fontSize:wp('3.3%'),
   color:'white',
   fontFamily:'Inter-Bold',

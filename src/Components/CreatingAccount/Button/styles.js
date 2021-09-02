@@ -6,8 +6,9 @@ export default StyleSheet.create({
     buttonContainer: {
         width:wp('100%'),
         height:hp('8%'),
+        // backgroundColor:'red',
         marginTop: 'auto',
-        marginBottom: hp('1%')
+        marginBottom: hp('2%')
     },
     button: {
         width:wp('90%'),

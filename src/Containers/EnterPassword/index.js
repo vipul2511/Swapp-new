@@ -13,17 +13,21 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+
 import CustomInput from '../../Components/CustomInput';
 import TransparentButton from '../../Components/TransparentButton';
 import Button from '../../Components/CreatingAccount/Button';
 import Styles from './styles';
 import BackArrow from '../../Components/CreatingAccount/BackArrow';
+import {LOGINACTION} from '../../Saga/action';
+import {connect} from 'react-redux';
 
-const EnterPassword = ({navigation}) => {
+const EnterPassword = ({navigation, LoginDispatch, Login}) => {
   const [isshow, setIsShow] = useState(false);
   const [warning, Setwarning] = useState(false);
   const [Password, setPassword] = useState('');
   const [focus, setFocus] = useState(false);
+  console.log(Login);
   const Inputhandler = e => {
     setPassword(e);
   };
@@ -31,9 +35,7 @@ const EnterPassword = ({navigation}) => {
     setFocus(false);
     setFocus(!focus);
   };
-  React.useEffect(() => {
-    // console.log(focus)
-  }, [focus]);
+
   const Setdata = () => {
     if (Password.length < 8) {
       setFocus(false);
@@ -46,7 +48,7 @@ const EnterPassword = ({navigation}) => {
     if (Password.length > 8) {
       Setwarning(false);
     }
-  });
+  }, [Password.length]);
 
   return (
     <SafeAreaView style={{backgroundColor: '#181A20', flex: 1}}>
@@ -109,6 +111,7 @@ const EnterPassword = ({navigation}) => {
 
           <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
             <TouchableOpacity
+              onPress={LoginDispatch}
               style={{
                 borderColor: '#5E6272',
                 borderWidth: 1.5,
@@ -153,7 +156,9 @@ const EnterPassword = ({navigation}) => {
           // />
           <Button
             style={true}
-            handleFunction={text => Setdata(text)}
+            handleFunction={text => {
+              Setdata(text);
+            }}
             btnText={'Log in'}
           />
         )}
@@ -161,5 +166,19 @@ const EnterPassword = ({navigation}) => {
     </SafeAreaView>
   );
 };
+const mapStateToprops = state => {
+  return {
+    Login: state.Login.Loginval,
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    LoginDispatch: () =>
+      dispatch({
+        type: LOGINACTION,
+        payload: 7,
+      }),
+  };
+};
 
-export default EnterPassword;
+export default connect(mapStateToprops, mapDispatchToProps)(EnterPassword);

@@ -9,6 +9,10 @@ import {
 import styles from './Styles';
 import Button from "../../../Components/CreatingAccount/Button";
 import BackArrow from "../../../Components/CreatingAccount/BackArrow";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
 
 const WordButton = (props) => {
     const { wordItem, handleAddWord } = props;
@@ -68,7 +72,10 @@ const ConfirmBackupPhaseScreen = ({navigation}) => {
         <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex:1}}>
             <StatusBar backgroundColor="#181A20" barStyle="light-content" />
-            <BackArrow />
+            <View style={{marginTop:hp('2%')}}>
+        <BackArrow  />
+        </View>
+
 
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Confirm your Secret Backup Phase</Text>

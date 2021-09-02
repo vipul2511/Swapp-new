@@ -7,18 +7,20 @@ import {
 import BackArrow from '../../Components/CreatingAccount/BackArrow';
 import Pinkeyboard from '../../Components/Pinkeyboard';
 import Button from '../../Components/CreatingAccount/Button';
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 const CreateNewPasscode = ({navigation}) => {
   const route = useRoute();
-  function onSucess(){
-    navigation.navigate('ConfirmPassCode',{InitalScreen:route?.params?.InitalScreen});
+  function onSucess() {
+    navigation.navigate('ConfirmPassCode', {
+      InitalScreen: route?.params?.InitalScreen,
+    });
     // navigation.navigate('RecoveryPhaseScreen');
   }
   return (
     <View style={{backgroundColor: '#181A20', flex: 1}}>
-            <View style={{marginTop:hp('4%')}}>
-        <BackArrow  />
-        </View>
+      <View style={{marginTop: hp('2%')}}>
+        <BackArrow />
+      </View>
       <View style={{marginHorizontal: wp('5%'), marginBottom: hp('5%')}}>
         <Text
           style={{
@@ -26,12 +28,16 @@ const CreateNewPasscode = ({navigation}) => {
             fontSize: wp('6.8%'),
             fontWeight: '600',
             marginTop: hp('4%'),
-            fontFamily:'Poppins-SemiBold'
+            fontFamily: 'Poppins-SemiBold',
           }}>
           Create new passcode
         </Text>
       </View>
-      <Pinkeyboard navigation={navigation} confirm={false} onSucess={onSucess}/>
+      <Pinkeyboard
+        navigation={navigation}
+        confirm={false}
+        onSucess={onSucess}
+      />
     </View>
   );
 };

@@ -17,6 +17,10 @@ import {
 import Button from "../../../Components/CreatingAccount/Button";
 import BackArrow from "../../../Components/CreatingAccount/BackArrow";
 import Title from "../../../Components/CreatingAccount/Title";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
 
 const CELL_COUNT = 4;
 
@@ -32,7 +36,9 @@ const Verification = ({navigation}) => {
         <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView keyboardVerticalOffset={StatusBar.currentHeight} behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex:1}}>
             <StatusBar backgroundColor="#181A20" barStyle="light-content" />
-            <BackArrow />
+            <View style={{marginTop:hp('2%')}}>
+        <BackArrow  />
+        </View>
 
             <Title title={'Email verification'} text={'We have sent code to you email:'}/>
             <Text style={styles.email}>Bel***ms@gmail.com</Text>

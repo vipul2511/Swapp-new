@@ -17,6 +17,10 @@ import {
 } from 'react-native-confirmation-code-field';
 import Button from "../../../Components/CreatingAccount/Button";
 import BackArrow from "../../../Components/CreatingAccount/BackArrow";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
 
 const Word = (props) => {
     const { text, n } = props;
@@ -33,7 +37,10 @@ const RecoveryPhaseScreen = ({navigation}) => {
         <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex:1}}>
             <StatusBar backgroundColor="#181A20" barStyle="light-content" />
-            <BackArrow />
+            <View style={{marginTop:hp('2%')}}>
+        <BackArrow  />
+        </View>
+
 
             <View>
                 <Image
@@ -71,7 +78,7 @@ const RecoveryPhaseScreen = ({navigation}) => {
             </View>
 
             <View style={styles.btnContainer}>
-                <Button btnText={'Copy'} isTransparent/>
+                <Button btnText={'Copy'} isTransparent btnconstyle={{marginBottom:hp('2%')}}/>
                 <Button handleFunction={()=>navigation.navigate('ConfirmBackupPhaseScreen')} btnText={'Download file'}/>
             </View>
 

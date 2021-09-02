@@ -9,9 +9,10 @@ let height = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   MainCon: {backgroundColor: '#181A20', flex: 1},
   ImageCon: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: hp('7%'),
+    height:220,width:220,overflow:'hidden',
+    // marginLeft:wp('24%'),
+    marginTop:hp('10%'),
+    marginBottom:hp('3%')
   },
   CodeCon: {
     justifyContent: 'space-between',

@@ -3,9 +3,9 @@ import {Text, TouchableOpacity, View} from "react-native";
 import styles from './styles';
 
 const Button = (props) => {
-    const { btnText, isTransparent,style, handleFunction } = props;
+    const { btnText, isTransparent,style,btnconstyle, handleFunction } = props;
     return (
-        <View style={styles.buttonContainer}>
+        <View style={[btnconstyle,styles.buttonContainer]}>
             <TouchableOpacity
                 style={[styles.button, isTransparent ? {
                     backgroundColor: '#ffffff00',

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   ImageBackground,
   View,
@@ -16,7 +16,7 @@ import {
 } from 'react-native-responsive-screen';
 import Button from '../../Components/Button';
 import TransparentButton from '../../Components/TransparentButton';
-import {useIsFocused} from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 const slides = [
   {
     key: 1,
@@ -54,7 +54,7 @@ const slides = [
     backgroundColor: '#2e2d39',
   },
 ];
-const OnBoarding = ({navigation}) => {
+const OnBoarding = ({ navigation }) => {
   const isFocused = useIsFocused();
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
@@ -69,13 +69,13 @@ const OnBoarding = ({navigation}) => {
       return true;
     }
   }
-  const _renderItem = ({item, index}) => {
+  const _renderItem = ({ item, index }) => {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <View style={styles.mainImageView}>
           <Image
             source={item.image}
-            style={{width: wp('69%'), height: hp('35%')}}
+            style={{ width: wp('69%'), height: hp('35%') }}
           />
         </View>
         <View style={styles.personaldataView}>
@@ -86,8 +86,8 @@ const OnBoarding = ({navigation}) => {
           <Text style={styles.getitText}>{item.text2}</Text>
           <ImageBackground
             source={require('../../Assets/Images/Ellipse.png')}
-            style={{width: wp('38%')}}>
-            <View style={{width: wp('60%')}}>
+            style={{ width: wp('38%') }}>
+            <View style={{ width: wp('60%') }}>
               <Text style={styles.getitText}>{item.text3}</Text>
             </View>
           </ImageBackground>
@@ -135,11 +135,11 @@ const OnBoarding = ({navigation}) => {
             style={styles.createSwapp}
             onPress={() => navigation.navigate('InitialScreen')}
           />
-          <View style={{marginTop: hp('3%')}}>
+          <View style={{ marginTop: hp('3%') }}>
             <TransparentButton
               title="Import account"
               style={styles.createSwapp}
-              onPress={() => navigation.navigate('CreateNewPassword',{InitalScreen:'ImportScreen'})}
+              onPress={() => navigation.navigate('CreateNewPassword', { InitalScreen: 'ImportScreen' })}
             />
           </View>
         </View>
@@ -165,7 +165,7 @@ const OnBoarding = ({navigation}) => {
                 fontSize: wp('3.8%'),
                 fontFamily: 'Inter-Bold',
                 textShadowColor: '#246BFD',
-                textShadowOffset: {width: -1, height: 0},
+                textShadowOffset: { width: -1, height: 0 },
                 textShadowRadius: 30,
               }}>
               {' '}
