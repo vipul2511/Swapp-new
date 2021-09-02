@@ -31,9 +31,7 @@ const EnterPassword = ({navigation}) => {
     setFocus(false);
     setFocus(!focus);
   };
-  React.useEffect(() => {
-    // console.log(focus)
-  }, [focus]);
+ 
   const Setdata = () => {
     if (Password.length < 8) {
       setFocus(false);
@@ -53,9 +51,7 @@ const EnterPassword = ({navigation}) => {
       <KeyboardAvoidingView
         style={{backgroundColor: '#181A20', flex: 1}}
         behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
-        <View style={{marginTop: hp('4%')}}>
           <BackArrow />
-        </View>
         <View style={{marginHorizontal: wp('8%')}}>
           <View style={{marginVertical: hp('3%')}}>
             <Text

@@ -106,7 +106,7 @@ const index = ({navigation,onSucess,confirm}) => {
       </View>
       <View style={styles.CodeCon}>
         {password.map((p, index) => {
-          let style = p !== '' ? [styles.Code2,{backgroundColor:confirm?'#A5F59C':'#246BFD'}]: styles.Code1;
+          let style = p !== '' ? [styles.Code2,{backgroundColor:confirm?'#A5F59C':'#246BFD'},{shadowColor:confirm?'#A5F59C':'#246BFD'}]: styles.Code1;
           return <View style={style} key={index} />;
         })}
       </View>

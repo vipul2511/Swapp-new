@@ -139,7 +139,7 @@ const OnBoarding = ({navigation}) => {
             <TransparentButton
               title="Import account"
               style={styles.createSwapp}
-              onPress={() => navigation.navigate('CreateNewPassword',{InitalScreen:'ImportScreen'})}
+              onPress={() => navigation.navigate('TypeWordPhrase',{InitalScreen:'Import Account'})}
             />
           </View>
         </View>

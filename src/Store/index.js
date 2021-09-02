@@ -1,11 +1,13 @@
-import { combineReducers } from "redux";
-import configureStore from "./CreateStore";
-import { reducer as network } from "react-native-offline";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import rootSaga from '../Saga';
-export default () => {
-    const rootReducer = combineReducers({
-    network: network,
+import authReducer from '../Reducers/auth.reducer';
+import createSagaMiddleware from "redux-saga";
+
+const sagaMiddleware = createSagaMiddleware();
+
+export const rootReducer = combineReducers({
+    auth: authReducer
 });
 
-return configureStore(rootReducer, rootSaga);
-};
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);

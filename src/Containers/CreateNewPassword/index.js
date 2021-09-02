@@ -27,9 +27,7 @@ const CreateNewPassword = ({navigation}) => {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{flex: 1}}>
-        <View style={{marginTop: hp('4%')}}>
           <BackArrow />
-        </View>
         <ScrollView style={{flex: 1, marginBottom: hp('1%')}}>
           <View style={{marginHorizontal: wp('5%')}}>
             <Text
@@ -66,6 +64,7 @@ const CreateNewPassword = ({navigation}) => {
             />
             <CustomInput
               header={'NEW PASSWORD (MIN 8 CHARS)'}
+              headertextstyle={{marginTop:20}}
               placeholder={''}
               eye
               eyeStyle={{
@@ -74,7 +73,9 @@ const CreateNewPassword = ({navigation}) => {
                 overflow: 'hidden',
                 position: 'absolute',
                 right: wp('1%'),
-                top: hp('5%'),
+                // backgroundColor:'red',                
+                top:hp('8%'),
+                // bottom:hp('50%'),
                 zIndex: 100,
               }}
               securetext
@@ -89,6 +90,7 @@ const CreateNewPassword = ({navigation}) => {
         <Button
           handleFunction={() => navigation.navigate('CreateNewPasscode',{InitalScreen:route?.params?.InitalScreen})}
           btnText={'Create'}
+          // style={{backgroundColor:'pink'}}
         />
       </KeyboardAvoidingView>
     </SafeAreaView>

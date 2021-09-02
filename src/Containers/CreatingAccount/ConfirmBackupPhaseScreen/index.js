@@ -36,7 +36,7 @@ const AttachedWord = (props) => {
     )
 }
 
-const ConfirmBackupPhaseScreen = ({navigation}) => {
+const ConfirmBackupPhaseScreen = (props) => {
     const [ words, setWords ] = useState([
         { id:1, word: 'asute', isSelected: false},
         { id:2, word: 'equitove', isSelected: false},
@@ -87,7 +87,7 @@ const ConfirmBackupPhaseScreen = ({navigation}) => {
                 }
             </View>
 
-            <Button handleFunction={()=>navigation.navigate('AcceptTerm')} btnText={'Confirm'}/>
+            <Button handleFunction={()=>props.navigation.navigate('NameScreen')} btnText={'Confirm'}/>
         </KeyboardAvoidingView>
         </SafeAreaView>
     )

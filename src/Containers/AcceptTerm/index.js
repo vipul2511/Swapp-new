@@ -11,6 +11,7 @@ import ValidationPopup from '../../Components/ValidationPopup';
 import PopupModal from '../../Components/PopupModal';
 import Styles from './styles';
 import Button from '../../Components/CreatingAccount/Button';
+import BackArrow from '../../Components/CreatingAccount/BackArrow';
 const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
   const [Selectedvalue, setselectedvalue] = React.useState('');
@@ -30,9 +31,10 @@ const AcceptTerm = ({navigation}) => {
 
   return (
     <View style={{flex: 1, backgroundColor: '#181A20'}}>
-      <View style={{marginTop:hp('5%')}}>
-      <Header navigation={navigation}/>
-      </View>
+       <View style={{marginTop:hp('2.8%')}}> 
+        <BackArrow isReg  />
+        </View>
+
       <View
         style={{
           height: hp('22%'),

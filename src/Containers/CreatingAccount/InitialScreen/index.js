@@ -3,6 +3,11 @@ import {Image, SafeAreaView, StatusBar, StyleSheet, Text,TouchableOpacity, View}
 import styles from './Styles';
 import BackArrow from "../../../Components/CreatingAccount/BackArrow";
 
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
+
 const OptionBlock = (props) => {
     const { img, title, text,onPress } = props;
 
@@ -28,7 +33,9 @@ const InitialScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor="#181A20" barStyle="light-content" />
-            <BackArrow />
+          
+        <BackArrow  />
+     
 
             <View style={styles.body}>
                 <Text style={styles.title}>Create your Swapp</Text>

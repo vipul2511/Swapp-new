@@ -20,7 +20,7 @@ import PopupModal from '../../Components/PopupModal';
 const PinCodeScreen = ({navigation}) => {
   const [password, setPassword] = useState(['', '', '', '', '']);
   const [biometryType, setbiometryType] = useState('');
-  const [showModal,setShowModal]=useState(false);
+  const [showModal, setShowModal] = useState(false);
   let Numbers = [
     {id: 1},
     {id: 2},
@@ -39,21 +39,20 @@ const PinCodeScreen = ({navigation}) => {
     for (var i = 0; i < tempCode.length; i++) {
       if (tempCode[i] == '') {
         tempCode[i] = num;
-          break;
-      } 
-      else {
+        break;
+      } else {
         continue;
       }
     }
-    if(tempCode[4]!=''){
+    if (tempCode[4] != '') {
       navigation.navigate('EnterPassword');
     }
-    setPassword(prePassword=>([...tempCode]));
+    setPassword(prePassword => [...tempCode]);
   };
 
   const OnpressCancel = () => {
     let tempCode = password;
-    if(password!=['', '', '', '', '']){
+    if (password != ['', '', '', '', '']) {
       for (var i = tempCode.length - 1; i >= 0; i--) {
         if (tempCode[i] !== '') {
           tempCode[i] = '';
@@ -62,28 +61,25 @@ const PinCodeScreen = ({navigation}) => {
           continue;
         }
       }
-      setPassword(prePassword => ([...tempCode]));
+      setPassword(prePassword => [...tempCode]);
     }
-
-    
   };
 
   useEffect(() => {
     FingerprintScanner.isSensorAvailable()
       .then(bioType => {
         setbiometryType(bioType);
-        if(bioType=="Biometrics"){
+        if (bioType == 'Biometrics') {
           showAuthenticationDialog();
         }
-        if(bioType=="TouchID"){
+        if (bioType == 'TouchID') {
           showAuthenticationDialog();
         }
-        if(bioType=="Face ID"){
+        if (bioType == 'Face ID') {
           showAuthenticationDialog();
         }
       })
       .catch(error => console.log('isSensorAvailable error => ', error));
-
   }, []);
 
   const Getmessage = () => {
@@ -117,11 +113,19 @@ const PinCodeScreen = ({navigation}) => {
   return (
     <>
       <View style={styles.MainCon}>
-        <View style={styles.ImageCon}>
-          <Image source={require('../../Assets/Images/Group46300.png')} style={{width:wp('60%'),height:hp('35%')}} />
+
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.ImageCon}>
+            <Image
+              source={require('../../Assets/Images/Group46300.png')}
+              style={{width: '100%', height: '100%', resizeMode: 'contain'}}
+            />
+          </View>
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{color: '#5E6272',fontFamily:'Inter-Regular'}}>Enter PIN code</Text>
+          <Text style={{color: '#5E6272', fontFamily: 'Inter-Regular'}}>
+            Enter PIN code
+          </Text>
         </View>
         <View style={styles.CodeCon}>
           {password.map((p, index) => {
@@ -145,24 +149,32 @@ const PinCodeScreen = ({navigation}) => {
           <View
             style={{position: 'absolute', bottom: hp('2%'), left: wp('15%')}}>
             <TouchableOpacity onPress={showAuthenticationDialog}>
-              <View style={{height:50,width:50,overflow:'hidden'}}>
-              <Image source={require('../../Assets/Images/TouchId.png')} style={{height:'100%',width:'100%',resizeMode:'contain'}} />
-
+              <View style={{height: 50, width: 50, overflow: 'hidden'}}>
+                <Image
+                  source={require('../../Assets/Images/TouchId.png')}
+                  style={{height: '100%', width: '100%', resizeMode: 'contain'}}
+                />
               </View>
             </TouchableOpacity>
           </View>
           <View
             style={{position: 'absolute', bottom: hp('3%'), right: wp('15%')}}>
             <TouchableOpacity onPress={OnpressCancel}>
-              <View style={{height:35,width:35,overflow:'hidden'}}>
-              <Image source={require('../../Assets/Images/BackText.png')} style={{height:'100%',width:'100%',resizeMode:'contain'}} />
-              {/* <Image source={require('../../Assets/Images/BackText.png')} /> */}
-
+              <View style={{height: 35, width: 35, overflow: 'hidden'}}>
+                <Image
+                  source={require('../../Assets/Images/BackText.png')}
+                  style={{height: '100%', width: '100%', resizeMode: 'contain'}}
+                />
+                {/* <Image source={require('../../Assets/Images/BackText.png')} /> */}
               </View>
-              
             </TouchableOpacity>
           </View>
-           {showModal&&<PopupModal visible={true} onPress={()=>navigation.navigate('CreateNewPassword')}  />}
+          {showModal && (
+            <PopupModal
+              visible={true}
+              onPress={() => navigation.navigate('CreateNewPassword')}
+            />
+          )}
           {/* -------------- */}
 
           {/* --------------------- */}

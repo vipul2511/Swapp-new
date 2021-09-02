@@ -22,11 +22,11 @@ const NameScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#181A20'}}>
       <StatusBar translucent={true} backgroundColor={'transparent'} />
-      <View style={{marginTop:hp('4%')}}>
+      {/* <View style={{marginTop:hp('2%')}}> */}
         <BackArrow />
-        </View>
+        {/* </View> */}
        <ScrollView>
-      <View style={{marginHorizontal: wp('5%')}}>
+      <View style={{marginLeft: wp('5%')}}>
         <View
           style={{
             marginTop: hp('2%'),
@@ -35,13 +35,15 @@ const NameScreen = ({navigation}) => {
             Add your full name
           </Text>
         </View>
-        <View style={{marginVertical: hp('1%')}}>
+        <View style={{marginTop: hp('2%')}}>
           <Text style={{fontSize:wp('4%'),color: '#5E6272',fontFamily:'Inter-Regular' ,letterSpacing: 0.4}}>
             Enter your full name
           </Text>
         </View>
+        <View style={{width:wp('90%')}}>
 <CustomInput onchange={InputValueHandler} value={firstName} header={'FIRST NAME'}/>
 <CustomInput onchange={(text)=>{setSecondName(text)}} value={secondName} header={'LAST NAME'}/>
+</View>
 <View style={{marginTop:wp('10%')}}>
     </View>       
       </View>

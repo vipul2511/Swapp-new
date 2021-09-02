@@ -22,7 +22,7 @@ const ConfirmPassCode = ({navigation}) => {
   };
   return (
     <View style={{backgroundColor: '#181A20', flex: 1}}>
-      <View style={{marginTop: hp('4%')}}>
+      <View style={{marginTop: hp('2%')}}>
         <BackArrow />
       </View>
       <View style={{marginHorizontal: wp('5%'), marginBottom: hp('5%')}}>
@@ -34,7 +34,7 @@ const ConfirmPassCode = ({navigation}) => {
             marginTop: hp('4%'),
             fontFamily: 'Poppins-SemiBold',
           }}>
-          {/* Create new passcode */}
+          Confirm new passcode
         </Text>
       </View>
       <Pinkeyboard navigation={navigation} confirm={true} onSucess={onSucess} />
