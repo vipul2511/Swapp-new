@@ -25,16 +25,18 @@ const CreateNewPassword = ({navigation}) => {
   const route = useRoute();
   const [confirmPassword, setConfirmPassword] = useState('');
   const checkAndRedirect = () => {
-    if (Password === confirmPassword && Password.length >= 8) {
+    if (Password === confirmPassword) {
       setnotmatched(false);
       navigation.navigate('CreateNewPasscode', {
         InitalScreen: route?.params?.InitalScreen,
       });
     } else {
       setnotmatched(true);
-      setlengtherror(true);
     }
     if (confirmPassword.length < 8) {
+      setlengtherror(true);
+    } else {
+      setlengtherror(false);
     }
   };
 
@@ -55,7 +57,7 @@ const CreateNewPassword = ({navigation}) => {
                 marginBottom: hp('2%'),
                 fontFamily: 'Poppins-SemiBold',
               }}>
-              Create new password
+              Create your Password
             </Text>
 
             <Text
@@ -73,6 +75,7 @@ const CreateNewPassword = ({navigation}) => {
 
             <CustomInput
               header={'NEW PASSWORD (MIN 8 CHARS)'}
+              headertextstyle={{marginTop: hp('4%')}}
               placeholder={''}
               eye
               eyeStyle={{
@@ -81,7 +84,7 @@ const CreateNewPassword = ({navigation}) => {
                 overflow: 'hidden',
                 position: 'absolute',
                 right: wp('1%'),
-                top: hp('5%'),
+                top: hp('8%'),
                 zIndex: 100,
               }}
               securetext
@@ -93,7 +96,7 @@ const CreateNewPassword = ({navigation}) => {
             />
             <CustomInput
               header={'NEW PASSOWORD'}
-              headertextstyle={{marginTop: 20}}
+              headertextstyle={{marginTop: hp('5%')}}
               placeholder={''}
               eye
               eyeStyle={{
@@ -103,7 +106,7 @@ const CreateNewPassword = ({navigation}) => {
                 position: 'absolute',
                 right: wp('1%'),
                 // backgroundColor:'red',
-                top: hp('8%'),
+                top: hp('14.5%'),
                 // bottom:hp('50%'),
                 zIndex: 100,
               }}
@@ -121,7 +124,8 @@ const CreateNewPassword = ({navigation}) => {
                   fontSize: 15,
                   fontFamily: 'Inter-Regular',
                   lineHeight: 24,
-                  fontWeight: '500',
+                  fontWeight: '400',
+                  marginTop: hp('0.5'),
                 }}>
                 Must be a least 8 characters
               </Text>
@@ -133,7 +137,7 @@ const CreateNewPassword = ({navigation}) => {
                   fontSize: 15,
                   fontFamily: 'Inter-Regular',
                   lineHeight: 24,
-                  fontWeight: '500',
+                  fontWeight: '400',
                 }}>
                 Password Not Matched
               </Text>

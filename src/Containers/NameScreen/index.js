@@ -29,7 +29,7 @@ const NameScreen = ({navigation}) => {
   };
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#181A20'}}>
-      <StatusBarur translucent={true} backgroundColor={'transparent'} />
+      <StatusBar translucent={true} backgroundColor={'transparent'} />
       <View style={{marginTop: hp('2%')}}>
         <BackArrow />
       </View>

@@ -1,7 +1,16 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StatusBar,
+  ImageBackground,
+} from 'react-native';
 import Header from '../../Components/Header';
 import SelectionBtn from '../../Components/SelectionBtn';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -71,7 +80,7 @@ const AcceptTerm = ({navigation}) => {
         <Button handleFunction={updateshow} btnText={'Got it'} />
       ) : null}
 
-      {PopModal && (
+      {/* {PopModal && (
         <PopupModal
           visible={true}
           children={
@@ -80,7 +89,49 @@ const AcceptTerm = ({navigation}) => {
           height={'55%'}
           onPress={() => navigation.navigate('OnBoarding')}
         />
+      )} */}
+
+      {PopModal && (
+        <PopupModal
+          btncon={{marginVertical: hp('3%')}}
+          visible={true}
+          btntext={'Get started!'}
+          children={
+            'You have successfully protected your Swapp! Please keep you back-up phrase safe and sound.'
+          }
+          height={'57%'}
+          onPress={() => navigation.navigate('OnBoarding')}
+          img={
+            <View
+              style={{
+                height: hp('23%'),
+                width: wp('100%'),
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <ImageBackground
+                resizeMode="contain"
+                source={require('../../Assets/Images/checkcircle.png')}
+                style={{
+                  height: hp('20%'),
+                  width: wp('35%'),
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Icon
+                  name="check"
+                  // backgroundColor="white"
+                  color="white"
+                  size={50}
+
+                  // onPress={this.loginWithFacebook}
+                />
+              </ImageBackground>
+            </View>
+          }
+        />
       )}
+
       {showValidpop == true && (
         <ValidationPopup Show={true} showback={updateshow} />
       )}

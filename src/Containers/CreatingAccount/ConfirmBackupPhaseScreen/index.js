@@ -152,42 +152,13 @@ const ConfirmBackupPhaseScreen = props => {
         )}
         {showModal && (
           <PopupModal
-            btncon={{marginVertical: hp('3%')}}
             visible={true}
-            btntext={'Get started!'}
+            btntext={'Next'}
             children={
-              'You have successfully protected your Swapp! Please keep you back-up phrase safe and sound.'
+              'You have registered your Swap account. Have a good use of the app.'
             }
-            height={'57%'}
+            height={'55%'}
             onPress={() => props.navigation.navigate('NameScreen')}
-            img={
-              <View
-                style={{
-                  height: hp('23%'),
-                  width: wp('100%'),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <ImageBackground
-                  resizeMode="contain"
-                  source={require('../../../Assets/Images/checkcircle.png')}
-                  style={{
-                    height: hp('20%'),
-                    width: wp('35%'),
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <Icon
-                    name="check"
-                    // backgroundColor="white"
-                    color="white"
-                    size={50}
-
-                    // onPress={this.loginWithFacebook}
-                  />
-                </ImageBackground>
-              </View>
-            }
           />
         )}
       </KeyboardAvoidingView>
