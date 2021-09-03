@@ -15,6 +15,7 @@ export function sendEmail(data) {
     //     name: 'mahir',
     //     password: 'acdfkdjfdkljf',
     //   },
+    
     data: {
       email: data.email,
       is_credit: data.is_credit,

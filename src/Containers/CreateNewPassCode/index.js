@@ -41,12 +41,13 @@ const CreateNewPasscode = ({navigation}) => {
       />
       <View>
         <Button
-          handleFunction={() => navigation.navigate('CreateNewPasscode')}
+          handleFunction={() => navigation.navigate('ConfirmPassCode')}
           btnText={'Next'}
           // style={{marginTop:20}}
         />
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={() => navigation.navigate('ConfirmPassCode')}>
      <Text style={{color: '#5E6272', textAlign: 'center'}}>Skip</Text>
      </TouchableOpacity>
     </View>

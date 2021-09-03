@@ -19,9 +19,25 @@ import {
 import Button from '../../Components/CreatingAccount/Button';
 import {useRoute} from '@react-navigation/native';
 const CreateNewPassword = ({navigation}) => {
+  const [notmatched, setnotmatched] = useState(false);
+  const [lengtherror, setlengtherror] = useState(false);
   const [Password, setPassword] = useState('');
   const route = useRoute();
   const [confirmPassword, setConfirmPassword] = useState('');
+  const checkAndRedirect = () => {
+    if (Password === confirmPassword && Password.length >= 8) {
+      setnotmatched(false);
+      navigation.navigate('CreateNewPasscode', {
+        InitalScreen: route?.params?.InitalScreen,
+      });
+    } else {
+      setnotmatched(true);
+      setlengtherror(true);
+    }
+    if (confirmPassword.length < 8) {
+    }
+  };
+
   return (
     <SafeAreaView style={Styles.container}>
       <KeyboardAvoidingView
@@ -41,7 +57,15 @@ const CreateNewPassword = ({navigation}) => {
               }}>
               Create new password
             </Text>
-            <Text style={{color:'#5E6272',fontSize:15,fontFamily:'Inter-Regular',lineHeight:24,fontWeight:'500'}}>
+
+            <Text
+              style={{
+                color: '#5E6272',
+                fontSize: 15,
+                fontFamily: 'Inter-Regular',
+                lineHeight: 24,
+                fontWeight: '500',
+              }}>
               Please create the password that will unlock your Swapp wallet on
               the current device. Please note, that Swapp won’t be able to
               recover the password for you.
@@ -90,16 +114,34 @@ const CreateNewPassword = ({navigation}) => {
               value={confirmPassword}
               fontstyle={{fontSize: wp('3.5%')}}
             />
-            <Text style={{color:'#5E6272',fontSize:15,fontFamily:'Inter-Regular',lineHeight:24,fontWeight:'500'}}>Must be a least 8 characters</Text>
-
+            {lengtherror ? (
+              <Text
+                style={{
+                  color: '#5E6272',
+                  fontSize: 15,
+                  fontFamily: 'Inter-Regular',
+                  lineHeight: 24,
+                  fontWeight: '500',
+                }}>
+                Must be a least 8 characters
+              </Text>
+            ) : null}
+            {notmatched ? (
+              <Text
+                style={{
+                  color: '#5E6272',
+                  fontSize: 15,
+                  fontFamily: 'Inter-Regular',
+                  lineHeight: 24,
+                  fontWeight: '500',
+                }}>
+                password Not Matched
+              </Text>
+            ) : null}
           </View>
         </ScrollView>
         <Button
-          handleFunction={() =>
-            navigation.navigate('CreateNewPasscode', {
-              InitalScreen: route?.params?.InitalScreen,
-            })
-          }
+          handleFunction={checkAndRedirect}
           btnText={'Create'}
           // style={{backgroundColor:'pink'}}
         />

@@ -54,12 +54,13 @@ const ConfirmPassCode = ({navigation}) => {
       )}
       <View>
         <Button
-          handleFunction={() => navigation.navigate('CreateNewPasscode')}
+          handleFunction={() => navigation.navigate('RecoveryPhaseScreen')}
           btnText={'Next'}
           // style={{marginTop:20}}
         />
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('RecoveryPhaseScreen')}>
         <Text style={{color: '#5E6272', textAlign: 'center'}}>Skip</Text>
       </TouchableOpacity>
     </View>
