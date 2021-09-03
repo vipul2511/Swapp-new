@@ -129,13 +129,13 @@ const CreateNewPassword = ({navigation}) => {
             {notmatched ? (
               <Text
                 style={{
-                  color: '#5E6272',
+                  color: 'red',
                   fontSize: 15,
                   fontFamily: 'Inter-Regular',
                   lineHeight: 24,
                   fontWeight: '500',
                 }}>
-                password Not Matched
+                Password Not Matched
               </Text>
             ) : null}
           </View>
