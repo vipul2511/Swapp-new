@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Image,
-  Platform
+  Platform,
 } from 'react-native';
 import Styles from './styles';
 import CustomInput from '../../Components/CustomInput';
@@ -17,7 +17,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Button from '../../Components/CreatingAccount/Button';
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 const CreateNewPassword = ({navigation}) => {
   const [Password, setPassword] = useState('');
   const route = useRoute();
@@ -27,7 +27,7 @@ const CreateNewPassword = ({navigation}) => {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{flex: 1}}>
-          <BackArrow />
+        <BackArrow />
         <ScrollView style={{flex: 1, marginBottom: hp('1%')}}>
           <View style={{marginHorizontal: wp('5%')}}>
             <Text
@@ -40,6 +40,11 @@ const CreateNewPassword = ({navigation}) => {
                 fontFamily: 'Poppins-SemiBold',
               }}>
               Create new password
+            </Text>
+            <Text style={{color:'#5E6272',fontSize:15,fontFamily:'Inter-Regular',lineHeight:24,fontWeight:'500'}}>
+              Please create the password that will unlock your Swapp wallet on
+              the current device. Please note, that Swapp won’t be able to
+              recover the password for you.
             </Text>
 
             <CustomInput
@@ -63,8 +68,8 @@ const CreateNewPassword = ({navigation}) => {
               fontstyle={{fontSize: wp('7%'), fontFamily: 'Inter-Bold'}}
             />
             <CustomInput
-              header={'NEW PASSWORD (MIN 8 CHARS)'}
-              headertextstyle={{marginTop:20}}
+              header={'NEW PASSOWORD'}
+              headertextstyle={{marginTop: 20}}
               placeholder={''}
               eye
               eyeStyle={{
@@ -73,8 +78,8 @@ const CreateNewPassword = ({navigation}) => {
                 overflow: 'hidden',
                 position: 'absolute',
                 right: wp('1%'),
-                // backgroundColor:'red',                
-                top:hp('8%'),
+                // backgroundColor:'red',
+                top: hp('8%'),
                 // bottom:hp('50%'),
                 zIndex: 100,
               }}
@@ -85,10 +90,16 @@ const CreateNewPassword = ({navigation}) => {
               value={confirmPassword}
               fontstyle={{fontSize: wp('3.5%')}}
             />
+            <Text style={{color:'#5E6272',fontSize:15,fontFamily:'Inter-Regular',lineHeight:24,fontWeight:'500'}}>Must be a least 8 characters</Text>
+
           </View>
         </ScrollView>
         <Button
-          handleFunction={() => navigation.navigate('CreateNewPasscode',{InitalScreen:route?.params?.InitalScreen})}
+          handleFunction={() =>
+            navigation.navigate('CreateNewPasscode', {
+              InitalScreen: route?.params?.InitalScreen,
+            })
+          }
           btnText={'Create'}
           // style={{backgroundColor:'pink'}}
         />

@@ -18,17 +18,18 @@ const CreateNewPasscode = ({navigation}) => {
   }
   return (
     <View style={{backgroundColor: '#181A20', flex: 1}}>
-      <View style={{marginTop:hp('2.4%')}}>
+      <View style={{marginTop: hp('2.4%')}}>
         <BackArrow />
-        </View>
+      </View>
       <View style={{marginHorizontal: wp('5%'), marginBottom: hp('5%')}}>
         <Text
           style={{
             color: 'white',
             fontSize: wp('6.8%'),
             fontWeight: '600',
-            marginTop: hp('4%'),
+            // marginTop: hp('4%'),
             fontFamily: 'Poppins-SemiBold',
+            textAlign: 'center',
           }}>
           Create new passcode
         </Text>
@@ -38,6 +39,16 @@ const CreateNewPasscode = ({navigation}) => {
         confirm={false}
         onSucess={onSucess}
       />
+      <View>
+        <Button
+          handleFunction={() => navigation.navigate('CreateNewPasscode')}
+          btnText={'Next'}
+          // style={{marginTop:20}}
+        />
+      </View>
+      <TouchableOpacity>
+     <Text style={{color: '#5E6272', textAlign: 'center'}}>Skip</Text>
+     </TouchableOpacity>
     </View>
   );
 };

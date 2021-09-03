@@ -139,7 +139,11 @@ const OnBoarding = ({navigation}) => {
             <TransparentButton
               title="Import account"
               style={styles.createSwapp}
-              onPress={() => navigation.navigate('TypeWordPhrase',{InitalScreen:'Import Account'})}
+              onPress={() =>
+                navigation.navigate('TypeWordPhrase', {
+                  InitalScreen: 'Import Account',
+                })
+              }
             />
           </View>
         </View>
@@ -158,7 +162,10 @@ const OnBoarding = ({navigation}) => {
             }}>
             Already have an account ?
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('PinScreen')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('PinScreen')}
+            //  onPress={() => navigation.navigate('ConfirmBackupPhaseScreen')}
+          >
             <Text
               style={{
                 color: '#246BFD',

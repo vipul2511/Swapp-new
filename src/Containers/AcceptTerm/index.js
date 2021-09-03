@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
 import Header from '../../Components/Header';
 import SelectionBtn from '../../Components/SelectionBtn';
@@ -16,7 +16,7 @@ const AcceptTerm = ({navigation}) => {
   const [showValidpop, setshowValidpop] = React.useState(false);
   const [Selectedvalue, setselectedvalue] = React.useState('');
   // const [showModal,setshowModal]= React.useState(false);
-  const [PopModal,setPopModal] =useState(false)
+  const [PopModal, setPopModal] = useState(false);
   const selection = ['Privacy', 'Monetize', 'Both'];
   const GetSelected = value => {
     setselectedvalue(value);
@@ -25,15 +25,15 @@ const AcceptTerm = ({navigation}) => {
     if (Selectedvalue === '') {
       setshowValidpop(!showValidpop);
     } else {
-     setPopModal(true)
+      setPopModal(true);
     }
   };
 
   return (
     <View style={{flex: 1, backgroundColor: '#181A20'}}>
-       <View style={{marginTop:hp('2.8%')}}> 
-        <BackArrow isReg  />
-        </View>
+      <View style={{marginTop: hp('2.8%')}}>
+        <BackArrow isReg />
+      </View>
 
       <View
         style={{
@@ -68,10 +68,19 @@ const AcceptTerm = ({navigation}) => {
         //   }}
         //   textStyle={{fontWeight: 'bold', fontSize: 14}}
         // />
-        <Button handleFunction={updateshow} btnText={'Got it'}/>
+        <Button handleFunction={updateshow} btnText={'Got it'} />
       ) : null}
 
- {PopModal&&<PopupModal visible={true} children={"You have registered your Swap account. Have a good use of the app."} height={'55%'} onPress={()=>navigation.navigate('OnBoarding')}  />}
+      {PopModal && (
+        <PopupModal
+          visible={true}
+          children={
+            'You have registered your Swap account. Have a good use of the app.'
+          }
+          height={'55%'}
+          onPress={() => navigation.navigate('OnBoarding')}
+        />
+      )}
       {showValidpop == true && (
         <ValidationPopup Show={true} showback={updateshow} />
       )}

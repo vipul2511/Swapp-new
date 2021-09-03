@@ -103,7 +103,7 @@ const EnterPassword = ({navigation}) => {
             </Text>
           ) : null}
 
-          <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+          {/* <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
             <TouchableOpacity
               style={{
                 borderColor: '#5E6272',
@@ -125,8 +125,8 @@ const EnterPassword = ({navigation}) => {
                 }}>
                 Forgot your password?
               </Text>
-            </TouchableOpacity>
-          </View>
+            </TouchableOpacity> */}
+          {/* </View> */}
 
           {/* <TextInput placeholder={'dffd'}/> */}
         </View>

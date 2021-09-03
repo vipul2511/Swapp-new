@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 
   NumberCon: {
-    marginTop: hp('10%'),
+    marginTop: hp('4%'),
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   Number: {
     width: wp('30%'),
-    height: hp('13%'),
+    height: hp('12%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
